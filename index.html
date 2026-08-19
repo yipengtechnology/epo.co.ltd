@@ -693,45 +693,150 @@
      SECTION 4.5：最新動態 (Facebook 貼文)
 =================================================== -->
 <style>
-/* FB 貼文區塊專用樣式：修正置中與響應式寬度 */
-.fb-outer-wrapper {
+/* ===== FB 最新動態雙欄/三欄視覺襯底區塊 ===== */
+.fb-section-grid {
     display: flex;
     justify-content: center;
-    align-items: center;
-    width: 100%;
+    align-items: stretch;
+    gap: 30px;
+    max-width: 1050px;
     margin: 0 auto;
 }
 
-.fb-card-container {
-    width: 100%;
-    max-width: 500px; /* 與 FB 插件最大寬度一致 */
+/* 兩側質感襯底卡片 */
+.fb-side-card {
+    flex: 1;
+    min-width: 260px;
     background: #ffffff;
-    padding: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 30px 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.fb-side-card h3 {
+    font-size: 1.15rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.fb-side-card p {
+    font-size: 0.92rem;
+    color: var(--text-medium);
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.fb-feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+}
+
+.fb-feature-list li {
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.fb-feature-list i {
+    color: var(--accent-color);
+    font-size: 0.85rem;
+}
+
+/* 社群按鈕 */
+.btn-fb-action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: var(--primary-color);
+    color: #ffffff !important;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.btn-fb-action:hover {
+    background: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+/* 中央 FB 貼文外框 */
+.fb-main-container {
+    width: 100%;
+    max-width: 500px;
+    background: #ffffff;
+    padding: 12px;
     border-radius: 12px;
     border: 1px solid #e0e0e0;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
     box-sizing: border-box;
     display: flex;
     justify-content: center;
+    flex-shrink: 0;
 }
 
-/* 強制 FB 內部 SDK 產生的 iframe 填滿容器 */
-.fb-card-container .fb-page, 
-.fb-card-container .fb-page span, 
-.fb-card-container .fb-page iframe {
+.fb-main-container .fb-page,
+.fb-main-container .fb-page span,
+.fb-main-container .fb-page iframe {
     width: 100% !important;
     max-width: 100% !important;
+}
+
+/* ===== 響應式斷點 (RWD) ===== */
+@media (max-width: 992px) {
+    .fb-section-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+    .fb-side-card {
+        width: 100%;
+        max-width: 500px;
+    }
 }
 </style>
 
 <section class="section-padding">
     <h2>最新動態與實績</h2>
-    <div style="text-align: center; margin-bottom: 25px; color: var(--text-medium);">
+    <div style="text-align: center; margin-bottom: 35px; color: var(--text-medium);">
         追蹤我們的 Facebook 粉絲專頁，獲取最新的加工案例與廠房動態
     </div>
-    
-    <div class="fb-outer-wrapper">
-        <div class="fb-card-container">
+
+    <div class="fb-section-grid">
+        <!-- 左側襯底卡片：粉專簡介與動態重點 -->
+        <div class="fb-side-card">
+            <div>
+                <h3><i class="fas fa-bullhorn"></i> 即時技術動態</h3>
+                <p>翊鵬科技定期於官方粉絲專頁更新最新技術實績、廠房設備升級紀錄與塗裝加工案例。</p>
+                <ul class="fb-feature-list">
+                    <li><i class="fas fa-check"></i> 最新加工案例展示</li>
+                    <li><i class="fas fa-check"></i> 廠房設備與製程公開</li>
+                    <li><i class="fas fa-check"></i> 塗裝防護知識分享</li>
+                </ul>
+            </div>
+            <a href="https://www.facebook.com/yipengtechnology" target="_blank" class="btn-fb-action">
+                <i class="fab fa-facebook-square"></i> 前往 Facebook 專頁
+            </a>
+        </div>
+
+        <!-- 中央：FB Page Plugin (500px 限制) -->
+        <div class="fb-main-container">
             <div class="fb-page" 
                  data-href="https://www.facebook.com/yipengtechnology" 
                  data-tabs="timeline" 
@@ -745,6 +850,22 @@
                     <a href="https://www.facebook.com/yipengtechnology">翊鵬科技 YIPENG Technology</a>
                 </blockquote>
             </div>
+        </div>
+
+        <!-- 右側襯底卡片：專人諮詢與快速對接 -->
+        <div class="fb-side-card">
+            <div>
+                <h3><i class="fas fa-headset"></i> 專人諮詢服務</h3>
+                <p>若您有關於表面處理加工、試樣打樣或量產需求的疑問，歡迎透過社群或直接與我們的專業團隊聯繫。</p>
+                <ul class="fb-feature-list">
+                    <li><i class="fas fa-clock"></i> 服務時間：08:00 - 17:00</li>
+                    <li><i class="fas fa-phone"></i> 電話：02-86778500</li>
+                    <li><i class="fas fa-envelope"></i> 信箱：epo.co.ltd@gmail.com</li>
+                </ul>
+            </div>
+            <a href="https://lin.ee/5rTJfNe" target="_blank" class="btn-fb-action" style="background: #06C755;">
+                <i class="fab fa-line"></i> 加入 LINE 官方帳號
+            </a>
         </div>
     </div>
 </section>
