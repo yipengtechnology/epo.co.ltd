@@ -215,8 +215,8 @@
         .service-card p { color: var(--text-medium); font-size: 0.95rem; flex-grow: 1; }
         /* ================= 輪播圖區塊 樣式 ================= */
         .carousel-section {
-          padding: 60px 20px;
-          background-color: #f8f9fa; /* 可依網站主色系自行調整背景色 */
+          padding: 40px 20px;
+          background-color: transparent; /* 已移除灰色背景 */
         }
         
         .carousel-container {
@@ -225,7 +225,7 @@
           position: relative;
           overflow: hidden;
           border-radius: 12px;
-          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
         }
         
         .carousel-track {
@@ -240,8 +240,8 @@
         
         .carousel-slide img {
           width: 100%;
-          height: 500px; /* 固定高度，可依照需求調整 */
-          object-fit: cover; /* 確保圖片不變形填滿容器 */
+          height: 500px; /* 圖片高度 */
+          object-fit: cover;
           display: block;
         }
         
@@ -250,23 +250,25 @@
           position: absolute;
           top: 50%;
           transform: translateY(-50%);
-          background-color: rgba(0, 0, 0, 0.5);
-          color: white;
+          background-color: rgba(0, 0, 0, 0.4);
+          color: #ffffff;
           border: none;
           width: 44px;
           height: 44px;
           border-radius: 50%;
           cursor: pointer;
-          font-size: 20px;
+          font-size: 24px;
+          line-height: 1;
           display: flex;
           align-items: center;
           justify-content: center;
           transition: background-color 0.3s ease;
           z-index: 10;
+          user-select: none;
         }
         
         .carousel-btn:hover {
-          background-color: rgba(0, 0, 0, 0.8);
+          background-color: rgba(0, 0, 0, 0.7);
         }
         
         .carousel-btn.prev {
@@ -277,7 +279,7 @@
           right: 15px;
         }
         
-        /* 下方指示燈/頁碼 */
+        /* 下方頁碼指示點 */
         .carousel-dots {
           position: absolute;
           bottom: 15px;
@@ -302,15 +304,14 @@
           transform: scale(1.2);
         }
         
-        /* 手機版 RWD 調整 */
         @media (max-width: 768px) {
           .carousel-slide img {
-            height: 300px; /* 手機版降低高度 */
+            height: 300px;
           }
           .carousel-btn {
             width: 36px;
             height: 36px;
-            font-size: 16px;
+            font-size: 20px;
           }
         }
         /* =========================================
@@ -706,37 +707,32 @@
     </section>
     <!-- ================= 產品與實績展示輪播區塊 ================= -->
     <section class="carousel-section">
-      <div class="container" style="text-align: center; margin-bottom: 30px;">
-        <h2>實績與加工案例展示</h2>
-        <p>精選塗裝與表面處理實績展示</p>
-      </div>
-    
       <div class="carousel-container" id="imageCarousel">
         <div class="carousel-track" id="carouselTrack">
-          <div class="carousel-slide"><img src="image001.jpg" alt="加工實績 1" loading="lazy"></div>
-          <div class="carousel-slide"><img src="image002.jpg" alt="加工實績 2" loading="lazy"></div>
-          <div class="carousel-slide"><img src="image003.jpg" alt="加工實績 3" loading="lazy"></div>
-          <div class="carousel-slide"><img src="image004.jpg" alt="加工實績 4" loading="lazy"></div>
-          <div class="carousel-slide"><img src="image005.jpg" alt="加工實績 5" loading="lazy"></div>
-          <div class="carousel-slide"><img src="image006.jpg" alt="加工實績 6" loading="lazy"></div>
-          <div class="carousel-slide"><img src="image007.jpg" alt="加工實績 7" loading="lazy"></div>
-          <div class="carousel-slide"><img src="image008.jpg" alt="加工實績 8" loading="lazy"></div>
-          <div class="carousel-slide"><img src="image009.jpg" alt="加工實績 9" loading="lazy"></div>
-          <div class="carousel-slide"><img src="image010.jpg" alt="加工實績 10" loading="lazy"></div>
-          <div class="carousel-slide"><img src="image011.jpg" alt="加工實績 11" loading="lazy"></div>
-          <div class="carousel-slide"><img src="image012.jpg" alt="加工實績 12" loading="lazy"></div>
-          <div class="carousel-slide"><img src="image013.jpg" alt="加工實績 13" loading="lazy"></div>
-          <div class="carousel-slide"><img src="image014.jpg" alt="加工實績 14" loading="lazy"></div>
-          <div class="carousel-slide"><img src="image015.jpg" alt="加工實績 15" loading="lazy"></div>
-          <div class="carousel-slide"><img src="image016.jpg" alt="加工實績 16" loading="lazy"></div>
-          <div class="carousel-slide"><img src="image017.jpg" alt="加工實績 17" loading="lazy"></div>
+          <div class="carousel-slide"><img src="image001.jpg" alt="實績展示 1" loading="lazy"></div>
+          <div class="carousel-slide"><img src="image002.jpg" alt="實績展示 2" loading="lazy"></div>
+          <div class="carousel-slide"><img src="image003.jpg" alt="實績展示 3" loading="lazy"></div>
+          <div class="carousel-slide"><img src="image004.jpg" alt="實績展示 4" loading="lazy"></div>
+          <div class="carousel-slide"><img src="image005.jpg" alt="實績展示 5" loading="lazy"></div>
+          <div class="carousel-slide"><img src="image006.jpg" alt="實績展示 6" loading="lazy"></div>
+          <div class="carousel-slide"><img src="image007.jpg" alt="實績展示 7" loading="lazy"></div>
+          <div class="carousel-slide"><img src="image008.jpg" alt="實績展示 8" loading="lazy"></div>
+          <div class="carousel-slide"><img src="image009.jpg" alt="實績展示 9" loading="lazy"></div>
+          <div class="carousel-slide"><img src="image010.jpg" alt="實績展示 10" loading="lazy"></div>
+          <div class="carousel-slide"><img src="image011.jpg" alt="實績展示 11" loading="lazy"></div>
+          <div class="carousel-slide"><img src="image012.jpg" alt="實績展示 12" loading="lazy"></div>
+          <div class="carousel-slide"><img src="image013.jpg" alt="實績展示 13" loading="lazy"></div>
+          <div class="carousel-slide"><img src="image014.jpg" alt="實績展示 14" loading="lazy"></div>
+          <div class="carousel-slide"><img src="image015.jpg" alt="實績展示 15" loading="lazy"></div>
+          <div class="carousel-slide"><img src="image016.jpg" alt="實績展示 16" loading="lazy"></div>
+          <div class="carousel-slide"><img src="image017.jpg" alt="實績展示 17" loading="lazy"></div>
         </div>
     
-        <!-- 左右切換按鈕 -->
-        <button class="carousel-btn prev" id="prevBtn" aria-label="上一張">&10094;</button>
-        <button class="carousel-btn next" id="nextBtn" aria-label="下一張">&10095;</button>
+        <!-- 左右切換按鈕（已修正為簡潔箭頭符號） -->
+        <button class="carousel-btn prev" id="prevBtn" aria-label="上一張">❮</button>
+        <button class="carousel-btn next" id="nextBtn" aria-label="下一張">❯</button>
     
-        <!-- 頁碼指示點 -->
+        <!-- 頁碼指示燈 -->
         <div class="carousel-dots" id="carouselDots"></div>
       </div>
     </section>
