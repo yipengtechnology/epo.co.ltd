@@ -539,32 +539,48 @@
             .contact-details { flex-direction: column; align-items: center; }
             .contact-item { width: 100%; justify-content: center; }
         }
-        /* ================= 手機端懸浮 LINE 按鈕 ================= */
+        /* ================= 右下角 LINE 懸浮按鈕 ================= */
         .float-line-btn {
           position: fixed;
-          bottom: 20px;
-          right: 20px;
-          width: 56px;
-          height: 56px;
-          background-color: #06C755;
+          bottom: 25px;
+          right: 25px;
+          width: 60px;
+          height: 60px;
+          background-color: #06C755; /* LINE 官方綠色 */
+          color: #ffffff;
           border-radius: 50%;
           display: flex;
-          align-items: center;
           justify-content: center;
+          align-items: center;
           box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-          z-index: 9999;
           text-decoration: none;
-          transition: transform 0.2s ease;
+          z-index: 9999;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         
-        .float-line-btn:active {
-          transform: scale(0.92);
+        .float-line-btn:hover {
+          transform: translateY(-5px) scale(1.05);
+          box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
         }
         
         .float-line-btn svg {
-          width: 38px;
-          height: 38px;
-          display: block;
+          width: 34px;
+          height: 34px;
+          fill: #ffffff;
+        }
+        
+        /* 手機版微調尺寸與位置 */
+        @media (max-width: 768px) {
+          .float-line-btn {
+            bottom: 20px;
+            right: 20px;
+            width: 52px;
+            height: 52px;
+          }
+          .float-line-btn svg {
+            width: 28px;
+            height: 28px;
+          }
         }
         
         /* 提示文字小標籤（可選，增加點擊率） */
@@ -1228,11 +1244,10 @@
   });
 </script>
 <!-- 手機端懸浮 LINE 按鈕 -->
-<a href="https://line.me/R/ti/p/@066wshpr" target="_blank" rel="noopener noreferrer" class="float-line-btn" aria-label="加入官方LINE">
-  <!-- 高精度 LINE Icon -->
-  <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-    <path fill="#FFFFFF" d="M32.5 18c0-5.8-5.6-10.5-12.5-10.5S7.5 12.2 7.5 18c0 5.2 4.4 9.5 10.4 10.3.4.1.9.3 1 .8.1.5 0 1.2-.1 1.7-.2.9-.8 3.3-.9 3.6-.1.5.2.8.7.5 3.8-2.6 8.3-5.8 11.3-8.5 1.7-1.7 2.6-3.6 2.6-5.9z" />
-    <path fill="#06C755" d="M14.6 19.3h-1.5v-3.5c0-.3-.2-.5-.5-.5s-.5.2-.5.5v4c0 .3.2.5.5.5h2c.3 0 .5-.2.5-.5s-.2-.5-.5-.5zm2.8.5c.3 0 .5-.2.5-.5v-4c0-.3-.2-.5-.5-.5s-.5.2-.5.5v4c0 .3.2.5.5.5zm5.7-4.5c-.3 0-.5.2-.5.5v2.8l-2.1-2.9c-.1-.2-.3-.3-.5-.3-.3 0-.5.2-.5.5v4c0 .3.2.5.5.5s.5-.2.5-.5v-2.8l2.1 2.9c.1.1.2.2.4.2.1 0 .2 0 .3-.1.2-.1.3-.3.3-.5v-4c0-.3-.2-.5-.5-.5zm5.5 1.5h-1.5v-.8h1.5c.3 0 .5-.2.5-.5s-.2-.5-.5-.5h-2c-.3 0-.5.2-.5.5v4c0 .3.2.5.5.5h2c.3 0 .5-.2.5-.5s-.2-.5-.5-.5h-1.5v-.8h1.5c.3 0 .5-.2.5-.5s-.2-.4-.5-.4z"/>
+<a href="https://line.me/R/ti/p/@066wshpr" class="float-line-btn" target="_blank" rel="noopener noreferrer" aria-label="加入官方 LINE">
+  <!-- LINE Icon SVG -->
+  <svg viewBox="0 0 24 24">
+    <path d="M24 10.304c0-5.369-5.383-9.738-12-9.738-6.616 0-12 4.369-12 9.738 0 4.814 4.269 8.846 10.036 9.608.391.084.922.258 1.057.592.121.303.079.778.039 1.085l-.171 1.027c-.053.303-.242 1.186 1.039.647 1.281-.54 6.911-4.069 9.428-6.967 1.739-1.907 2.572-3.843 2.572-6.032z"/>
   </svg>
   <span class="btn-tooltip">聯絡我們</span>
 </a>
