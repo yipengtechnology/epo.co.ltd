@@ -444,32 +444,52 @@
     <!-- ===== 結構化資料（Schema.org LocalBusiness）
          有助 Google 搜尋顯示商家資訊卡
          修改後請同步更新聯絡資訊區的 HTML 內容 ===== -->
+    <!-- SEO 結構化資料 (Schema.org JSON-LD) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "翊鵬科技有限公司",
-      "image": "https://sites.google.com/view/yipengtechnology",
-      "url": "https://sites.google.com/view/yipengtechnology",
-      "telephone": "02-86778500",
+      "@type": "ProfessionalService",
+      "name": "翊鵬科技有限公司 YIPENG TECHNOLOGY CO., LTD.",
+      "image": "https://yipengtechnology.github.io/epo.co.ltd/images/logo.png",
+      "@id": "https://yipengtechnology.github.io/epo.co.ltd/",
+      "url": "https://yipengtechnology.github.io/epo.co.ltd/",
+      "telephone": "+886-2-86778500",
       "email": "epo.co.ltd@gmail.com",
+      "priceRange": "$$$",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "大湖路192號",
         "addressLocality": "鶯歌區",
         "addressRegion": "新北市",
-        "postalCode": "239008",
+        "postalCode": "239",
         "addressCountry": "TW"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 24.9541,
+        "longitude": 121.3408
       },
       "openingHoursSpecification": {
         "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
         "opens": "08:00",
         "closes": "17:00"
       },
-      "priceRange": "$$",
-      "description": "專業表面處理加工廠，提供自動化粉體與液體烤漆服務。專注於AI伺服器、航海航電與軍工設備之功能性塗裝解決方案。",
-      "keywords": "表面處理加工, 粉體烤漆, 液體烤漆, 功能性塗裝, 鶯歌烤漆"
+      "knowsAbout": [
+        "功能性塗裝",
+        "自動化粉體烤漆",
+        "自動化液體烤漆",
+        "軍規鹽霧測試",
+        "AI伺服器表面處理",
+        "化學表面處理",
+        "金屬表面處理加工"
+      ]
     }
     </script>
 </head>
