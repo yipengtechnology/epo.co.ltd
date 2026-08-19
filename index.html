@@ -689,28 +689,62 @@
     </section>
     <!-- /SECTION 4：廠房設備 -->
 
-    <!-- ===================================================
+<!-- ===================================================
      SECTION 4.5：最新動態 (Facebook 貼文)
 =================================================== -->
+<style>
+/* FB 貼文區塊專用樣式：修正置中與響應式寬度 */
+.fb-outer-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.fb-card-container {
+    width: 100%;
+    max-width: 500px; /* 與 FB 插件最大寬度一致 */
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+}
+
+/* 強制 FB 內部 SDK 產生的 iframe 填滿容器 */
+.fb-card-container .fb-page, 
+.fb-card-container .fb-page span, 
+.fb-card-container .fb-page iframe {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+</style>
+
 <section class="section-padding">
     <h2>最新動態與實績</h2>
     <div style="text-align: center; margin-bottom: 25px; color: var(--text-medium);">
         追蹤我們的 Facebook 粉絲專頁，獲取最新的加工案例與廠房動態
     </div>
     
-    <div class="fb-container">
-        <div class="fb-page" 
-             data-href="https://www.facebook.com/yipengtechnology" 
-             data-tabs="timeline" 
-             data-width="500" 
-             data-height="700" 
-             data-small-header="false" 
-             data-adapt-container-width="true" 
-             data-hide-cover="false" 
-             data-show-facepile="true">
-            <blockquote cite="https://www.facebook.com/yipengtechnology" class="fb-xfbml-parse-ignore">
-                <a href="https://www.facebook.com/yipengtechnology">翊鵬科技 YIPENG Technology</a>
-            </blockquote>
+    <div class="fb-outer-wrapper">
+        <div class="fb-card-container">
+            <div class="fb-page" 
+                 data-href="https://www.facebook.com/yipengtechnology" 
+                 data-tabs="timeline" 
+                 data-width="500" 
+                 data-height="700" 
+                 data-small-header="false" 
+                 data-adapt-container-width="true" 
+                 data-hide-cover="false" 
+                 data-show-facepile="true">
+                <blockquote cite="https://www.facebook.com/yipengtechnology" class="fb-xfbml-parse-ignore">
+                    <a href="https://www.facebook.com/yipengtechnology">翊鵬科技 YIPENG Technology</a>
+                </blockquote>
+            </div>
         </div>
     </div>
 </section>
