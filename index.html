@@ -213,7 +213,106 @@
         .service-icon { font-size: 3rem; color: var(--primary-color); margin-bottom: 20px; height: 60px; }
         .service-card h3 { justify-content: center; margin-bottom: 15px; font-size: 1.25rem; border-bottom: none; padding-bottom: 0; }
         .service-card p { color: var(--text-medium); font-size: 0.95rem; flex-grow: 1; }
-
+        /* ================= 輪播圖區塊 樣式 ================= */
+        .carousel-section {
+          padding: 60px 20px;
+          background-color: #f8f9fa; /* 可依網站主色系自行調整背景色 */
+        }
+        
+        .carousel-container {
+          max-width: 1200px;
+          margin: 0 auto;
+          position: relative;
+          overflow: hidden;
+          border-radius: 12px;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .carousel-track {
+          display: flex;
+          transition: transform 0.5s ease-in-out;
+        }
+        
+        .carousel-slide {
+          min-width: 100%;
+          box-sizing: border-box;
+        }
+        
+        .carousel-slide img {
+          width: 100%;
+          height: 500px; /* 固定高度，可依照需求調整 */
+          object-fit: cover; /* 確保圖片不變形填滿容器 */
+          display: block;
+        }
+        
+        /* 左右切換按鈕 */
+        .carousel-btn {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          background-color: rgba(0, 0, 0, 0.5);
+          color: white;
+          border: none;
+          width: 44px;
+          height: 44px;
+          border-radius: 50%;
+          cursor: pointer;
+          font-size: 20px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: background-color 0.3s ease;
+          z-index: 10;
+        }
+        
+        .carousel-btn:hover {
+          background-color: rgba(0, 0, 0, 0.8);
+        }
+        
+        .carousel-btn.prev {
+          left: 15px;
+        }
+        
+        .carousel-btn.next {
+          right: 15px;
+        }
+        
+        /* 下方指示燈/頁碼 */
+        .carousel-dots {
+          position: absolute;
+          bottom: 15px;
+          left: 50%;
+          transform: translateX(-50%);
+          display: flex;
+          gap: 8px;
+          z-index: 10;
+        }
+        
+        .dot {
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background-color: rgba(255, 255, 255, 0.5);
+          cursor: pointer;
+          transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        
+        .dot.active {
+          background-color: #ffffff;
+          transform: scale(1.2);
+        }
+        
+        /* 手機版 RWD 調整 */
+        @media (max-width: 768px) {
+          .carousel-slide img {
+            height: 300px; /* 手機版降低高度 */
+          }
+          .carousel-btn {
+            width: 36px;
+            height: 36px;
+            font-size: 16px;
+          }
+        }
         /* =========================================
            廠房設備區塊 — 外層容器
            背景色由 --bg-light 控制
@@ -605,7 +704,42 @@
 
         </div>
     </section>
-
+    <!-- ================= 產品與實績展示輪播區塊 ================= -->
+    <section class="carousel-section">
+      <div class="container" style="text-align: center; margin-bottom: 30px;">
+        <h2>實績與加工案例展示</h2>
+        <p>精選塗裝與表面處理實績展示</p>
+      </div>
+    
+      <div class="carousel-container" id="imageCarousel">
+        <div class="carousel-track" id="carouselTrack">
+          <div class="carousel-slide"><img src="image001.jpg" alt="加工實績 1" loading="lazy"></div>
+          <div class="carousel-slide"><img src="image002.jpg" alt="加工實績 2" loading="lazy"></div>
+          <div class="carousel-slide"><img src="image003.jpg" alt="加工實績 3" loading="lazy"></div>
+          <div class="carousel-slide"><img src="image004.jpg" alt="加工實績 4" loading="lazy"></div>
+          <div class="carousel-slide"><img src="image005.jpg" alt="加工實績 5" loading="lazy"></div>
+          <div class="carousel-slide"><img src="image006.jpg" alt="加工實績 6" loading="lazy"></div>
+          <div class="carousel-slide"><img src="image007.jpg" alt="加工實績 7" loading="lazy"></div>
+          <div class="carousel-slide"><img src="image008.jpg" alt="加工實績 8" loading="lazy"></div>
+          <div class="carousel-slide"><img src="image009.jpg" alt="加工實績 9" loading="lazy"></div>
+          <div class="carousel-slide"><img src="image010.jpg" alt="加工實績 10" loading="lazy"></div>
+          <div class="carousel-slide"><img src="image011.jpg" alt="加工實績 11" loading="lazy"></div>
+          <div class="carousel-slide"><img src="image012.jpg" alt="加工實績 12" loading="lazy"></div>
+          <div class="carousel-slide"><img src="image013.jpg" alt="加工實績 13" loading="lazy"></div>
+          <div class="carousel-slide"><img src="image014.jpg" alt="加工實績 14" loading="lazy"></div>
+          <div class="carousel-slide"><img src="image015.jpg" alt="加工實績 15" loading="lazy"></div>
+          <div class="carousel-slide"><img src="image016.jpg" alt="加工實績 16" loading="lazy"></div>
+          <div class="carousel-slide"><img src="image017.jpg" alt="加工實績 17" loading="lazy"></div>
+        </div>
+    
+        <!-- 左右切換按鈕 -->
+        <button class="carousel-btn prev" id="prevBtn" aria-label="上一張">&10094;</button>
+        <button class="carousel-btn next" id="nextBtn" aria-label="下一張">&10095;</button>
+    
+        <!-- 頁碼指示點 -->
+        <div class="carousel-dots" id="carouselDots"></div>
+      </div>
+    </section>
     <!-- ===================================================
          SECTION 4：廠房設備與產能概況（新版設計）
          結構：.equipment-section
@@ -971,6 +1105,84 @@
     </footer>
 
 </div><!-- /container -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const track = document.getElementById('carouselTrack');
+    const slides = Array.from(track.children);
+    const nextBtn = document.getElementById('nextBtn');
+    const prevBtn = document.getElementById('prevBtn');
+    const dotsNav = document.getElementById('carouselDots');
+    const container = document.getElementById('imageCarousel');
 
+    let currentIndex = 0;
+    const totalSlides = slides.length;
+    const intervalTime = 3500; // 自動輪播間隔（毫秒）：3.5秒
+    let autoPlayTimer = null;
+
+    // 動態生成指示點 (Dots)
+    slides.forEach((_, index) => {
+      const dot = document.createElement('div');
+      dot.classList.add('dot');
+      if (index === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => goToSlide(index));
+      dotsNav.appendChild(dot);
+    });
+
+    const dots = Array.from(dotsNav.children);
+
+    // 移動至指定 Slide
+    function goToSlide(index) {
+      if (index < 0) {
+        currentIndex = totalSlides - 1;
+      } else if (index >= totalSlides) {
+        currentIndex = 0;
+      } else {
+        currentIndex = index;
+      }
+
+      track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+      // 更新 Dot 狀態
+      dots.forEach(dot => dot.classList.remove('active'));
+      if (dots[currentIndex]) {
+        dots[currentIndex].classList.add('active');
+      }
+    }
+
+    // 按鈕事件監聽
+    nextBtn.addEventListener('click', () => {
+      goToSlide(currentIndex + 1);
+      resetTimer();
+    });
+
+    prevBtn.addEventListener('click', () => {
+      goToSlide(currentIndex - 1);
+      resetTimer();
+    });
+
+    // 自動輪播控制
+    function startAutoPlay() {
+      autoPlayTimer = setInterval(() => {
+        goToSlide(currentIndex + 1);
+      }, intervalTime);
+    }
+
+    function stopAutoPlay() {
+      clearInterval(autoPlayTimer);
+    }
+
+    function resetTimer() {
+      stopAutoPlay();
+      startAutoPlay();
+    }
+
+    // 滑鼠移入暫停，移出恢復
+    container.addEventListener('mouseenter', stopAutoPlay);
+    container.addEventListener('mouseleave', startAutoPlay);
+
+    // 啟動自動輪播
+    startAutoPlay();
+  });
+</script>
 </body>
 </html>
