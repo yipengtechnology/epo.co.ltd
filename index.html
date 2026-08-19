@@ -110,13 +110,37 @@
            修改 background 可更換漸層配色
         ========================================= */
         .hero {
-            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            position: relative;
+            /* 原有藍色漸層帶適度透明度，確保底圖質感能透出，同時維持文字清晰度 */
+            background: linear-gradient(135deg, rgba(44, 62, 80, 0.92) 0%, rgba(52, 152, 219, 0.85) 100%);
             color: white;
             text-align: center;
             padding: 90px 20px;
             border-radius: 12px;
             margin-bottom: 50px;
             box-shadow: 0 10px 25px rgba(44, 62, 80, 0.2);
+            overflow: hidden; /* 確保背景圖不會超出圓角邊框 */
+        }
+        
+        /* 放置 cover.jpg 底圖並加上右到左的透明度遮罩 */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* 置於 hero 文字與背景顏色的最底層 */
+            
+            /* 載入圖片：靠右、不重複、保持比例覆蓋高極限 */
+            background-image: url('cover.jpg');
+            background-position: right center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        
+            /* 漸變遮罩：最右邊 100% 顯現（black），最左邊 0% 透明（transparent） */
+            -webkit-mask-image: linear-gradient(to right, transparent 0%, black 100%);
+            mask-image: linear-gradient(to right, transparent 0%, black 100%);
         }
         .hero h1 { color: white; margin-bottom: 15px; }
         .hero p { font-size: 1.2rem; opacity: 0.95; margin-bottom: 25px; font-weight: 300; }
