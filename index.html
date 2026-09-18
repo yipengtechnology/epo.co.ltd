@@ -1,1261 +1,1835 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-Hant-TW">
-<head>
-    <!-- 安全防護標籤開始 -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: data: 'unsafe-inline' 'unsafe-eval';">
-    <meta http-equiv="X-Frame-Options" content="DENY">
-    <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta name="referrer" content="strict-origin-when-cross-origin">
-    <!-- 安全防護標籤結束 -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <!-- ============================================
+         安全防護標籤
+    ============================================ -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self' https: data: 'unsafe-inline' 'unsafe-eval;"
+    />
+    <meta http-equiv="X-Frame-Options" content="DENY" />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
 
-    <!-- ===== SEO：頁面標題與描述 ===== -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- ============================================
+         SEO 標題與描述
+    ============================================ -->
     <title>翊鵬科技有限公司 | 台灣表面處理、功能性塗裝與烤漆加工</title>
-    <!-- ===== 網頁 Favicon 圖示設定 ===== -->
-    <link rel="icon" type="image/png" sizes="32x32" href="logo.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="logo.png">
-    <meta name="description" content="翊鵬科技深耕新北鶯歌，專精高品質表面處理加工。提供自動化粉體烤漆、液體烤漆與精密印刷服務，涵蓋AI伺服器、軍工設備及航太零件。整合瑞士Gema與日本岩田設備，為您的產品提供卓越的防護與質感。">
-    <meta name="keywords" content="表面處理, 表面處理加工, 粉體烤漆, 液體烤漆, 功能性塗裝, 軍用塗裝, 鶯歌烤漆廠, 翊鵬科技">
+    <link rel="icon" type="image/png" sizes="32x32" href="logo.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="logo.png" />
+    <meta
+      name="description"
+      content="翊鵬科技深耕新北鶯歌，專精高品質表面處理加工。提供自動化粉體烤漆、液體烤漆與精密印刷服務，涵蓋AI伺服器、軍工設備及航太零件。整合瑞士Gema與日本岩田設備，為您的產品提供卓越的防護與質感。"
+    />
+    <meta
+      name="keywords"
+      content="表面處理, 表面處理加工, 粉體烤漆, 液體烤漆, 功能性塗裝, 軍用塗裝, 鶯歌烤漆廠, 翊鵬科技"
+    />
 
-    <!-- ===== 外部字型與圖示資源 ===== -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- ============================================
+         字體：IBM Plex Sans TC（中文）+ IBM Plex Sans（英文數字）
+         設計系統來源：IBM Carbon Design System（Carbon Design System）
+         - 展示級標題使用字重 300（light），為 IBM 品牌標誌性處理
+         - 內文使用字重 400，字距 0.16px（Carbon 精度細節）
+    ============================================ -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+TC:wght@300;400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
 
     <style>
-        /* =========================================
-           全域設計變數
-           修改此處可快速調整整站主色與強調色
-        ========================================= */
-        :root {
-            --primary-color: #2c3e50; /* 深藍：主色，用於標題、邊框 */
-            --accent-color:  #e67e22; /* 橘色：強調色，用於標籤、底線 */
-            --bg-light:      #f8f9fa; /* 淺灰背景（設備區塊） */
-            --text-dark:     #333;    /* 主要文字色 */
-            --text-medium:   #555;    /* 次要文字色 */
-        }
-
-        /* =========================================
-           Reset & 基礎排版
-        ========================================= */
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-
-        body {
-            font-family: 'Noto Sans TC', sans-serif;
-            line-height: 1.7;
-            color: var(--text-dark);
-            background-color: #fff;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
-        ul { list-style: none; }
-        strong { font-weight: 700; color: var(--primary-color); }
-
-        /* 最大寬度容器 */
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* 通用上下間距 */
-        .section-padding { padding: 70px 0; }
-
-        /* =========================================
-           標題層級樣式（H1 ~ H4）
-           SEO 語意結構請勿隨意更改層級
-        ========================================= */
-        h1, h2, h3, h4 { color: var(--primary-color); margin-bottom: 1rem; font-weight: 700; }
-
-        /* 頁面唯一主標題 */
-        h1 { font-size: 2.5rem; text-align: center; margin-bottom: 0.5rem; }
-
-        /* 各區塊大標題，含橘色底線裝飾 */
-        h2 {
-            font-size: 2rem;
-            text-align: center;
-            margin-bottom: 3.5rem;
-            position: relative;
-        }
-        h2::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 3px;
-            background: var(--accent-color);
-            margin: 15px auto 0;
-        }
-
-        /* 卡片內小標題，含左側圖示 */
-        h3 {
-            font-size: 1.35rem;
-            margin-bottom: 1.2rem;
-            display: flex;
-            align-items: center;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
-        }
-        h3 i { margin-right: 10px; color: var(--accent-color); }
-
-        /* 設備子類別標題（帶橘色左邊框） */
-        h4 {
-            font-size: 1.1rem;
-            color: var(--primary-color);
-            margin-bottom: 0.8rem;
-            margin-top: 1.8rem;
-            background: rgba(230, 126, 34, 0.1);
-            padding: 5px 10px;
-            border-left: 4px solid var(--accent-color);
-            display: inline-block;
-            border-radius: 0 5px 5px 0;
-        }
-
-        /* =========================================
-           Hero 區塊（頁面頂部橫幅）
-           修改 background 可更換漸層配色
-        ========================================= */
-        .hero {
-            position: relative;
-            /* 原有藍色漸層帶適度透明度，確保底圖質感能透出，同時維持文字清晰度 */
-            background: linear-gradient(135deg, rgba(44, 62, 80, 0.92) 0%, rgba(52, 152, 219, 0.85) 100%);
-            color: white;
-            text-align: center;
-            padding: 90px 20px;
-            border-radius: 12px;
-            margin-bottom: 50px;
-            box-shadow: 0 10px 25px rgba(44, 62, 80, 0.2);
-            overflow: hidden; /* 確保背景圖不會超出圓角邊框 */
-        }
-        
-        /* 放置 cover.jpg 底圖並加上右到左的透明度遮罩 */
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1; /* 置於 hero 文字與背景顏色的最底層 */
-            
-            /* 載入圖片：靠右、不重複、保持比例覆蓋高極限 */
-            background-image: url('cover.jpg');
-            background-position: right center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        
-            /* 漸變遮罩：最右邊 100% 顯現（black），最左邊 0% 透明（transparent） */
-            -webkit-mask-image: linear-gradient(to right, transparent 0%, black 100%);
-            mask-image: linear-gradient(to right, transparent 0%, black 100%);
-        }
-        .hero h1 { color: white; margin-bottom: 15px; }
-        .hero p { font-size: 1.2rem; opacity: 0.95; margin-bottom: 25px; font-weight: 300; }
-
-        /* Hero 主要 CTA 按鈕 */
-        .btn-cta {
-            display: inline-flex;
-            align-items: center;
-            background: var(--accent-color);
-            color: white;
-            padding: 14px 35px;
-            border-radius: 50px;
-            font-weight: bold;
-            box-shadow: 0 5px 15px rgba(230, 126, 34, 0.3);
-        }
-        .btn-cta:hover { transform: translateY(-3px); background: #d35400; }
-        .btn-cta i { margin-right: 10px; }
-
-        /* =========================================
-           關於我們 & 技術優勢（雙欄佈局）
-        ========================================= */
-        .about-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
-            margin-bottom: 50px;
-        }
-        .about-text {
-            background: #fff;
-            padding: 35px;
-            border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
-        }
-        /* 左側橘色邊框強調 */
-        .about-text.bordered-section { border-left: 4px solid var(--accent-color); }
-
-        /* 技術優勢清單 */
-        .feature-list li { margin-bottom: 12px; display: flex; align-items: flex-start; }
-        .feature-list i { color: var(--accent-color); margin-right: 12px; margin-top: 5px; }
-
-        /* =========================================
-           服務項目卡片區
-           新增服務：複製一個 .service-card div 即可
-        ========================================= */
-        .services-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 25px;
-        }
-        .service-card {
-            background: white;
-            border: 1px solid #eee;
-            border-radius: 12px;
-            padding: 30px 25px;
-            text-align: center;
-            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            flex: 0 0 320px;
-            max-width: 100%;
-        }
-        .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(44, 62, 80, 0.12);
-            border-color: var(--accent-color);
-        }
-        .service-icon { font-size: 3rem; color: var(--primary-color); margin-bottom: 20px; height: 60px; }
-        .service-card h3 { justify-content: center; margin-bottom: 15px; font-size: 1.25rem; border-bottom: none; padding-bottom: 0; }
-        .service-card p { color: var(--text-medium); font-size: 0.95rem; flex-grow: 1; }
-        /* ================= 輪播圖區塊 樣式 ================= */
-        .carousel-section {
-          padding: 40px 20px;
-          background-color: transparent; /* 已移除灰色背景 */
-        }
-        
-        .carousel-container {
-          max-width: 1200px;
-          margin: 0 auto;
-          position: relative;
-          overflow: hidden;
-          border-radius: 12px;
-          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-        }
-        
-        .carousel-track {
-          display: flex;
-          transition: transform 0.5s ease-in-out;
-        }
-        
-        .carousel-slide {
-          min-width: 100%;
-          box-sizing: border-box;
-        }
-        
-        .carousel-slide img {
-          width: 100%;
-          height: 500px; /* 圖片高度 */
-          object-fit: cover;
-          display: block;
-        }
-        
-        /* 左右切換按鈕 */
-        .carousel-btn {
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-          background-color: rgba(0, 0, 0, 0.4);
-          color: #ffffff;
-          border: none;
-          width: 44px;
-          height: 44px;
-          border-radius: 50%;
-          cursor: pointer;
-          font-size: 24px;
-          line-height: 1;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          transition: background-color 0.3s ease;
-          z-index: 10;
-          user-select: none;
-        }
-        
-        .carousel-btn:hover {
-          background-color: rgba(0, 0, 0, 0.7);
-        }
-        
-        .carousel-btn.prev {
-          left: 15px;
-        }
-        
-        .carousel-btn.next {
-          right: 15px;
-        }
-        
-        /* 下方頁碼指示點 */
-        .carousel-dots {
-          position: absolute;
-          bottom: 15px;
-          left: 50%;
-          transform: translateX(-50%);
-          display: flex;
-          gap: 8px;
-          z-index: 10;
-        }
-        
-        .dot {
-          width: 10px;
-          height: 10px;
-          border-radius: 50%;
-          background-color: rgba(255, 255, 255, 0.5);
-          cursor: pointer;
-          transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-        
-        .dot.active {
-          background-color: #ffffff;
-          transform: scale(1.2);
-        }
-        
-        @media (max-width: 768px) {
-          .carousel-slide img {
-            height: 300px;
-          }
-          .carousel-btn {
-            width: 36px;
-            height: 36px;
-            font-size: 20px;
-          }
-        }
-        /* =========================================
-           廠房設備區塊 — 外層容器
-           背景色由 --bg-light 控制
-        ========================================= */
-        .equipment-section {
-            background: var(--bg-light);
-            padding: 70px 30px;
-            border-radius: 16px;
-            margin-top: 50px;
-        }
-
-        /* 設備區塊副標語 */
-        .equip-intro {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 40px;
-            color: var(--text-medium);
-        }
-
-        /* =========================================
-           廠房設備區塊 — 新版設備卡片樣式
-           （方案 B 視覺語言 + 全部展開）
-        ========================================= */
-
-        /* 每個大類別的外框卡片 */
-        .equip-sec {
-            margin-bottom: 24px;
-            border: 1px solid #e0e0e0;
-            border-radius: 12px;
-            overflow: hidden;
-        }
-
-        /* 大類別標題列（灰底橫條） */
-        .equip-sec-head {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 14px 20px;
-            background: #f0f2f4;
-            border-bottom: 1px solid #e0e0e0;
-        }
-        .equip-sec-head .e-icon { font-size: 18px; }
-        .equip-sec-head h3 {
-            font-size: 15px;
-            font-weight: 700;
-            margin: 0;
-            flex: 1;
-            border-bottom: none;
-            padding-bottom: 0;
-            color: var(--primary-color);
-        }
-
-        /* 設備總數標籤（右側小圓角標） */
-        .equip-pill {
-            font-size: 11px;
-            background: #fff;
-            border: 1px solid #ddd;
-            padding: 2px 10px;
-            border-radius: 10px;
-            color: var(--text-medium);
-            white-space: nowrap;
-        }
-
-        /* 大類別內容區 */
-        .equip-sec-body { padding: 20px 22px; }
-
-        /* 子類別兩欄並排
-           若只有一個子類別，可改 grid-template-columns: 1fr */
-        .equip-two-col {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 28px;
-        }
-
-        /* 子類別英文小標（灰色全大寫） */
-        .equip-col-head {
-            font-size: 11px;
-            font-weight: 700;
-            color: var(--text-medium);
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            margin-bottom: 10px;
-        }
-
-        /* 單筆設備列（數量標籤 + 名稱） */
-        .equip-item {
-            font-size: 13.5px;
-            padding: 7px 0;
-            border-bottom: 1px solid #eee;
-            display: flex;
-            gap: 8px;
-            align-items: flex-start;
-            line-height: 1.5;
-            color: var(--text-dark);
-        }
-        .equip-item:last-child { border-bottom: none; }
-
-        /* 橘色數量標籤（有具體數字時使用） */
-        .equip-num {
-            font-size: 11px;
-            font-weight: 700;
-            color: var(--accent-color);
-            background: #fef3e8;
-            padding: 2px 7px;
-            border-radius: 4px;
-            white-space: nowrap;
-            flex-shrink: 0;
-            margin-top: 2px;
-        }
-
-        /* 橘色圓點（無具體數字時使用） */
-        .equip-dot {
-            color: var(--accent-color);
-            font-size: 18px;
-            line-height: 1;
-            margin-top: 1px;
-            flex-shrink: 0;
-        }
-
-        /* 品管設備：3 欄格狀排列
-           調整 grid-template-columns 可改欄數 */
-        .qc-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 9px;
-        }
-
-        /* 品管設備單格 */
-        .qc-cell {
-            font-size: 13px;
-            padding: 9px 12px;
-            border: 1px solid #e8e8e8;
-            border-radius: 8px;
-            background: #fff;
-        }
-        .qc-cell .qc-label {
-            font-size: 11px;
-            color: var(--text-medium);
-            display: block;
-            margin-bottom: 3px;
-        }
-        .qc-cell .qc-val {
-            font-weight: 700;
-            font-size: 13px;
-            color: var(--primary-color);
-        }
-
-        /* =========================================
-           響應式斷點（手機適配）
-           768px 以下自動切換單欄
-        ========================================= */
-        @media (max-width: 768px) {
-            h1 { font-size: 2rem; }
-            h2 { font-size: 1.75rem; }
-            .section-padding { padding: 50px 0; }
-            .hero { padding: 60px 20px; }
-            .service-card { flex-basis: 80%; }
-
-            /* 設備區塊手機版：子類別單欄 */
-            .equip-two-col { grid-template-columns: 1fr; }
-
-            /* 品管格狀：手機改 2 欄 */
-            .qc-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-
-        /* =========================================
-           聯絡資訊 & 頁尾
-        ========================================= */
-        .contact-info {
-            text-align: center;
-            margin-top: 60px;
-            padding: 60px 30px;
-            background: #2c3e50;
-            color: white;
-            border-radius: 16px;
-        }
-        .contact-info h2 { color: white; margin-bottom: 2rem; }
-        .contact-info h2::after { background: rgba(255,255,255,0.3); }
-        .contact-intro { opacity: 0.8; margin-bottom: 30px; font-size: 1.1rem; }
-
-        .contact-details {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 25px;
-            margin-top: 30px;
-        }
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 1.1rem;
-            background: rgba(255,255,255,0.05);
-            padding: 10px 20px;
-            border-radius: 30px;
-        }
-        .contact-item i { color: var(--accent-color); }
-
-        /* 社群媒體圖示列 */
-        .social-links {
-            margin-top: 40px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 15px;
-        }
-        .social-links a {
-            display: flex; justify-content: center; align-items: center;
-            width: 48px; height: 48px;
-            background: rgba(255,255,255,0.12);
-            border-radius: 50%;
-            font-size: 1.3rem; color: white;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-        .social-links a:hover {
-            background: var(--accent-color);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(230, 126, 34, 0.4);
-            border-color: transparent;
-        }
-
-        @media (max-width: 768px) {
-            .contact-details { flex-direction: column; align-items: center; }
-            .contact-item { width: 100%; justify-content: center; }
-        }
-        /* ================= 右下角 LINE 懸浮按鈕 ================= */
-        .float-line-btn {
-          position: fixed;
-          bottom: 25px;
-          right: 25px;
-          width: 60px;
-          height: 60px;
-          background-color: #06C755; /* LINE 官方綠色 */
-          color: #ffffff;
-          border-radius: 50%;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-          text-decoration: none;
-          z-index: 9999;
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .float-line-btn:hover {
-          transform: translateY(-5px) scale(1.05);
-          box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
-        }
-        
-        .float-line-btn svg {
-          width: 34px;
-          height: 34px;
-          fill: #ffffff;
-        }
-        
-        /* 手機版微調尺寸與位置 */
-        @media (max-width: 768px) {
-          .float-line-btn {
-            bottom: 20px;
-            right: 20px;
-            width: 52px;
-            height: 52px;
-          }
-          .float-line-btn svg {
-            width: 28px;
-            height: 28px;
-          }
-        }
-        
-        /* 提示文字小標籤（可選，增加點擊率） */
-        .float-line-btn .btn-tooltip {
-          position: absolute;
-          right: 66px;
-          background-color: rgba(0, 0, 0, 0.75);
-          color: #ffffff;
-          padding: 6px 10px;
-          border-radius: 6px;
-          font-size: 12px;
-          white-space: nowrap;
-          pointer-events: none;
-          opacity: 0;
-          transition: opacity 0.3s ease;
-        }
-        
-        .float-line-btn:hover .btn-tooltip {
-          opacity: 1;
-        }
-
-    </style>
-
-    <!-- ===== 結構化資料（Schema.org LocalBusiness）
-         有助 Google 搜尋顯示商家資訊卡
-         修改後請同步更新聯絡資訊區的 HTML 內容 ===== -->
-    <!-- SEO 結構化資料 (Schema.org JSON-LD) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": "翊鵬科技有限公司 YIPENG TECHNOLOGY CO., LTD.",
-      "image": "https://yipengtechnology.github.io/epo.co.ltd/images/logo.png",
-      "@id": "https://yipengtechnology.github.io/epo.co.ltd/",
-      "url": "https://yipengtechnology.github.io/epo.co.ltd/",
-      "telephone": "+886-2-86778500",
-      "email": "epo.co.ltd@gmail.com",
-      "priceRange": "$$$",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "大湖路192號",
-        "addressLocality": "鶯歌區",
-        "addressRegion": "新北市",
-        "postalCode": "239",
-        "addressCountry": "TW"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 24.9541,
-        "longitude": 121.3408
-      },
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday"
-        ],
-        "opens": "08:00",
-        "closes": "17:00"
-      },
-      "knowsAbout": [
-        "功能性塗裝",
-        "自動化粉體烤漆",
-        "自動化液體烤漆",
-        "軍規鹽霧測試",
-        "AI伺服器表面處理",
-        "化學表面處理",
-        "金屬表面處理加工"
-      ]
-    }
-    </script>
-</head>
-<body>
-<!-- Facebook JavaScript SDK -->
-<div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v18.0"></script>
-<div class="container">
-
-    <!-- ===================================================
-         SECTION 1：Hero 頁面橫幅
-         修改 h1 文字與 p 標語即可更新主視覺文案
-    =================================================== -->
-    <header class="hero">
-        <h1>翊鵬科技｜功能性表面處理</h1>
-        <p>精密塗裝技術 · 高端外觀處理 · 軍規戰術防護 · 客製化解決方案</p>
-        <p style="font-size: 1rem; margin-top: -15px; opacity: 0.8;">您在精密製造與高端表面處理領域的最佳合作夥伴</p>
-        <br>
-        <!-- CTA 按鈕：href 改為實際 email 或聯絡表單連結 -->
-        <a href="https://lin.ee/5rTJfNe" target="_blank" class="btn-social-action btn-line">
-            <i class="fab fa-line"></i> 表面處理需求諮詢
-        </a>
-    </header>
-
-    <!-- ===================================================
-         SECTION 2：關於我們 & 技術優勢
-         兩欄並排，各為獨立 article
-    =================================================== -->
-    <section class="section-padding">
-        <div class="about-grid">
-
-            <!-- 左欄：企業核心價值 -->
-            <article class="about-text bordered-section">
-                <h3><i class="fas fa-building"></i> 企業核心價值</h3>
-                <p>翊鵬科技深耕精密<strong>表面處理加工</strong>，致力於為 AI 雲端伺服器、自動化組件、半導體設備及航太軍工產業提供頂尖塗裝解決方案。</p>
-                <p>我們不僅是加工服務商，更是協助您在研發階段優化產品功能性、耐用性與視覺價值的技術顧問。</p>
-                <p><strong>服務產業概覽：</strong></p>
-                <ul style="font-size: 0.9rem; color: var(--text-medium); margin-left: 20px; list-style-type: disc;">
-                    <li><strong>資通訊與自動化：</strong>AI伺服器、半導體設備、無人機、網通安控。</li>
-                    <li><strong>軍事與航太：</strong>軍規特殊功能設備、航海航電零件、仿真裝備。</li>
-                    <li><strong>精密醫療與能源：</strong>醫療電子儀器、油電汽機車零組件、動力工具。</li>
-                </ul>
-                <p style="margin-top: 15px;">歡迎進行新產品試樣製作、小量試產或長期產能供應合作。</p>
-            </article>
-
-            <!-- 右欄：技術優勢 -->
-            <article class="about-text bordered-section">
-                <h3><i class="fas fa-thumbs-up"></i> 我們的技術優勢</h3>
-                <ul class="feature-list">
-                    <li><i class="fas fa-check-circle"></i>
-                        <div><strong>全方位功能性塗裝：</strong>具備抗干擾、防偵測、抗靜電、高耐溫、超耐候與軍規鹽霧測試標準，精準對應嚴苛環境需求。</div>
-                    </li>
-                    <li><i class="fas fa-check-circle"></i>
-                        <div><strong>卓越外觀工藝：</strong>提供消光、砂紋、迷彩、金屬/鍍鈦質感、皮革/橡膠觸感等多樣化表面質感。</div>
-                    </li>
-                    <li><i class="fas fa-check-circle"></i>
-                        <div><strong>標準化品質管控：</strong>全面導入電子化 SOP 作業流程，整合自動化控制設備與精密化學量測。</div>
-                    </li>
-                    <li><i class="fas fa-check-circle"></i>
-                        <div><strong>專業檢測能力：</strong>備妥膜厚、色差管理、附著力（百格）、耐磨與鹽霧測試設備，確保品質恆定。</div>
-                    </li>
-                    <li><i class="fas fa-check-circle"></i>
-                        <div><strong>彈性產能調度：</strong>支援高品質精密打樣、小量多樣客製化，至大規模自動化量產需求。</div>
-                    </li>
-                </ul>
-            </article>
-
-        </div>
-    </section>
-
-    <!-- ===================================================
-         SECTION 3：服務項目卡片
-         新增服務：複製一個 div.service-card 區塊貼在後面
-    =================================================== -->
-    <section class="section-padding">
-        <h2>專業表面處理項目</h2>
-        <div class="services-grid">
-
-            <!-- 服務卡片 1 -->
-            <div class="service-card">
-                <div class="service-icon"><i class="fas fa-spray-can"></i></div>
-                <h3>自動化粉體烤漆</h3>
-                <p>運用靜電吸附原理，建構堅韌且耐腐蝕的防護塗層。無溶劑環保製程，特別適合工業機械與戶外長效防鏽產品。</p>
-            </div>
-
-            <!-- 服務卡片 2 -->
-            <div class="service-card">
-                <div class="service-icon"><i class="fas fa-tint"></i></div>
-                <h3>自動化液體烤漆</h3>
-                <p>針對高端電子產品與汽機車零件，提供高精度色彩與多樣化特殊質感，完美呈現精密表面加工的質感要求。</p>
-            </div>
-
-            <!-- 服務卡片 3 -->
-            <div class="service-card">
-                <div class="service-icon"><i class="fas fa-print"></i></div>
-                <h3>印刷</h3>
-                <p>提供高附著力的品牌標識與文字印刷服務。適用於金屬、塑膠及玻璃等多種材質表面，精準傳遞品牌細節。</p>
-            </div>
-
-            <!-- 服務卡片 4 -->
-            <div class="service-card">
-                <div class="service-icon"><i class="fas fa-flask"></i></div>
-                <h3>化學表面處理</h3>
-                <p>整合脫脂、酸洗與磷化轉化膜程序，徹底優化底材附著力與防鏽基底，是高品質表面處理加工的核心保障。</p>
-            </div>
-
-            <!-- 服務卡片 5 -->
-            <div class="service-card">
-                <div class="service-icon"><i class="fas fa-tools"></i></div>
-                <h3>金屬表面處理加工</h3>
-                <p>提供噴砂、拋光與研磨服務。有效調整表面粗糙度，除可消除表面瑕疵外，更能顯著提升後續塗層的咬合效果。</p>
-            </div>
-
-        </div>
-    </section>
-    <!-- ================= 產品與實績展示輪播區塊 ================= -->
-    <section class="carousel-section">
-      <div class="carousel-container" id="imageCarousel">
-        <div class="carousel-track" id="carouselTrack">
-          <div class="carousel-slide"><img src="image001.jpg" alt="實績展示 1" loading="lazy"></div>
-          <div class="carousel-slide"><img src="image002.jpg" alt="實績展示 2" loading="lazy"></div>
-          <div class="carousel-slide"><img src="image003.jpg" alt="實績展示 3" loading="lazy"></div>
-          <div class="carousel-slide"><img src="image004.jpg" alt="實績展示 4" loading="lazy"></div>
-          <div class="carousel-slide"><img src="image005.jpg" alt="實績展示 5" loading="lazy"></div>
-          <div class="carousel-slide"><img src="image006.jpg" alt="實績展示 6" loading="lazy"></div>
-          <div class="carousel-slide"><img src="image007.jpg" alt="實績展示 7" loading="lazy"></div>
-          <div class="carousel-slide"><img src="image008.jpg" alt="實績展示 8" loading="lazy"></div>
-          <div class="carousel-slide"><img src="image009.jpg" alt="實績展示 9" loading="lazy"></div>
-          <div class="carousel-slide"><img src="image010.jpg" alt="實績展示 10" loading="lazy"></div>
-          <div class="carousel-slide"><img src="image011.jpg" alt="實績展示 11" loading="lazy"></div>
-          <div class="carousel-slide"><img src="image012.jpg" alt="實績展示 12" loading="lazy"></div>
-          <div class="carousel-slide"><img src="image013.jpg" alt="實績展示 13" loading="lazy"></div>
-          <div class="carousel-slide"><img src="image014.jpg" alt="實績展示 14" loading="lazy"></div>
-          <div class="carousel-slide"><img src="image015.jpg" alt="實績展示 15" loading="lazy"></div>
-          <div class="carousel-slide"><img src="image016.jpg" alt="實績展示 16" loading="lazy"></div>
-          <div class="carousel-slide"><img src="image017.jpg" alt="實績展示 17" loading="lazy"></div>
-        </div>
-    
-        <!-- 左右切換按鈕（已修正為簡潔箭頭符號） -->
-        <button class="carousel-btn prev" id="prevBtn" aria-label="上一張">❮</button>
-        <button class="carousel-btn next" id="nextBtn" aria-label="下一張">❯</button>
-    
-        <!-- 頁碼指示燈 -->
-        <div class="carousel-dots" id="carouselDots"></div>
-      </div>
-    </section>
-    <!-- ===================================================
-         SECTION 4：廠房設備與產能概況（新版設計）
-         結構：.equipment-section
-           └─ .equip-sec（每個大類別一個）
-                ├─ .equip-sec-head（標題列）
-                └─ .equip-sec-body（內容區）
-                     └─ .equip-two-col（子類別兩欄，或單欄）
-                          └─ .equip-item（每筆設備）
-                               ├─ .equip-num（橘色數量標籤）
-                               └─ .equip-dot（無數量時用圓點）
-
-         新增設備：在對應 ul 內複製 .equip-item 一行
-         新增大類別：複製整個 .equip-sec 區塊
-    =================================================== -->
-    <section class="equipment-section">
-
-        <h2>廠房設備與產能概況</h2>
-        <p class="equip-intro">工欲善其事，必先利其器。我們擁有業界領先的自動化生產線與精密檢測設備。</p>
-
-        <!-- ── 大類別 1：塗裝生產線 ── -->
-        <div class="equip-sec">
-
-            <!-- 標題列：圖示 + 大類名稱 + 設備總數標籤 -->
-            <div class="equip-sec-head">
-                <span class="e-icon">🏭</span>
-                <h3>先進自動化塗裝生產線設備</h3>
-                <span class="equip-pill">18 項設備</span>
-            </div>
-
-            <!-- 內容區：粉體／液體 兩欄並排 -->
-            <div class="equip-sec-body">
-                <div class="equip-two-col">
-
-                    <!-- 子類別：粉體塗裝設備 -->
-                    <div>
-                        <div class="equip-col-head">粉體塗裝設備</div>
-
-                        <!-- 格式：<span class="equip-num">數量</span> 設備名稱 -->
-                        <div class="equip-item"><span class="equip-num">7 組</span>瑞士原裝進口 Gema optiflex 手持式噴槍</div>
-                        <div class="equip-item"><span class="equip-num">4 組</span>自動靜電塗裝機噴槍</div>
-                        <div class="equip-item"><span class="equip-num">2 台</span>往復機式粉體自動噴塗機</div>
-                        <div class="equip-item"><span class="equip-num">1 台</span>旋風式回收塗裝噴房</div>
-                        <div class="equip-item"><span class="equip-num">2 台</span>管濾式回收噴房</div>
-                        <div class="equip-item"><span class="equip-num">1 組</span>15 米遠紅外線預熱爐</div>
-                        <div class="equip-item"><span class="equip-num">180m</span>懸吊式輸送控制系統線</div>
-                        <!-- 無明確數量時改用 .equip-dot -->
-                        <div class="equip-item"><span class="equip-dot">•</span>熱旋風循環式烤爐（粉體線專用）</div>
-                        <div class="equip-item"><span class="equip-dot">•</span>樣品噴房 1 台 ／ 樣品烤箱 1 台</div>
-                    </div>
-
-                    <!-- 子類別：液體塗裝設備 -->
-                    <div>
-                        <div class="equip-col-head">液體塗裝設備</div>
-
-                        <div class="equip-item"><span class="equip-num">3 間</span>乾式液體噴房（萬級無塵室等級）</div>
-                        <div class="equip-item"><span class="equip-num">6 組</span>日本岩田手持式空氣噴槍</div>
-                        <div class="equip-item"><span class="equip-num">4 組</span>手持式靜電噴槍</div>
-                        <div class="equip-item"><span class="equip-num">1 台</span>DISK 靜電自動噴塗機</div>
-                        <div class="equip-item"><span class="equip-num">1 組</span>15 米遠紅外線預熱爐</div>
-                        <div class="equip-item"><span class="equip-num">200m</span>懸吊式輸送線</div>
-                        <div class="equip-item"><span class="equip-num">45m</span>熱旋風循環式烤爐（液體線專用）</div>
-                        <div class="equip-item"><span class="equip-dot">•</span>樣品噴房 1 台 ／ 樣品烤箱 1 台</div>
-                        <div class="equip-item"><span class="equip-dot">•</span>感應式自動噴槍機械手</div>
-                    </div>
-
-                </div>
-            </div>
-        </div><!-- /大類別 1 -->
-
-        <!-- ── 大類別 2：前處理系統 ── -->
-        <div class="equip-sec">
-
-            <div class="equip-sec-head">
-                <span class="e-icon">💧</span>
-                <h3>專業自動化前處理系統</h3>
-                <span class="equip-pill">6 項設備</span>
-            </div>
-
-            <div class="equip-sec-body">
-                <div class="equip-two-col">
-
-                    <!-- 子類別：噴淋式前處理線 -->
-                    <div>
-                        <div class="equip-col-head">噴淋式前處理線</div>
-                        <div class="equip-item"><span class="equip-num">250m</span>懸吊式輸送線</div>
-                        <div class="equip-item"><span class="equip-num">50m</span>隧道懸吊噴淋式前處理線</div>
-                        <div class="equip-item"><span class="equip-num">30m</span>遠紅外線水切爐</div>
-                    </div>
-
-                    <!-- 子類別：浸泡式前處理線 -->
-                    <div>
-                        <div class="equip-col-head">浸泡式前處理線</div>
-                        <div class="equip-item"><span class="equip-num">15 槽</span>籠門式浸泡線</div>
-                        <div class="equip-item"><span class="equip-num">3 台</span>天車</div>
-                        <div class="equip-item"><span class="equip-num">3 台</span>遠紅外線熱風循環烤箱</div>
-                    </div>
-
-                </div>
-            </div>
-        </div><!-- /大類別 2 -->
-
-        <!-- ── 大類別 3：品管檢驗儀器 ── -->
-        <div class="equip-sec">
-
-            <div class="equip-sec-head">
-                <span class="e-icon">🔬</span>
-                <h3>精密品管檢驗儀器實驗室</h3>
-                <span class="equip-pill">9 項設備</span>
-            </div>
-
-            <div class="equip-sec-body">
-                <!-- 品管設備用格狀顯示（3 欄），不使用兩欄分類 -->
-                <!-- 新增品管項目：複製一個 div.qc-cell 即可 -->
-                <div class="qc-grid">
-                    <div class="qc-cell"><span class="qc-label">耐候度</span><span class="qc-val">鹽霧測試機</span></div>
-                    <div class="qc-cell"><span class="qc-label">附著力</span><span class="qc-val">百格測試刀</span></div>
-                    <div class="qc-cell"><span class="qc-label">膜厚</span><span class="qc-val">膜厚計</span></div>
-                    <div class="qc-cell"><span class="qc-label">顏色</span><span class="qc-val">色差機</span></div>
-                    <div class="qc-cell"><span class="qc-label">亮度</span><span class="qc-val">光澤機</span></div>
-                    <div class="qc-cell"><span class="qc-label">衝擊</span><span class="qc-val">落球式衝擊測試儀</span></div>
-                    <div class="qc-cell"><span class="qc-label">固化度</span><span class="qc-val">MEK 測試劑</span></div>
-                    <div class="qc-cell"><span class="qc-label">硬度</span><span class="qc-val">鉛筆測試組、硬度計</span></div>
-                    <div class="qc-cell"><span class="qc-label">顆粒</span><span class="qc-val">點規</span></div>
-                </div>
-            </div>
-        </div><!-- /大類別 3 -->
-
-    </section>
-    <!-- /SECTION 4：廠房設備 -->
-
-<!-- ===================================================
-     SECTION 4.5：最新動態 (Facebook 貼文)
-=================================================== -->
-<style>
-/* ===== FB 最新動態雙欄視覺區塊 ===== */
-.fb-section-grid-2col {
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
-    gap: 30px;
-    max-width: 950px;
-    margin: 0 auto;
-}
-
-/* 左側：FB Page Plugin 容器 */
-.fb-main-container-left {
-    width: 100%;
-    max-width: 500px;
-    background: #ffffff;
-    padding: 12px;
-    border-radius: 12px;
-    border: 1px solid #e0e0e0;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    flex-shrink: 0;
-}
-
-.fb-main-container-left .fb-page,
-.fb-main-container-left .fb-page span,
-.fb-main-container-left .fb-page iframe {
-    width: 100% !important;
-    max-width: 100% !important;
-}
-
-/* 右側：粉專簡介與動態重點卡片 */
-.fb-side-card-right {
-    flex: 1;
-    min-width: 280px;
-    background: #ffffff;
-    border: 1px solid #e0e0e0;
-    border-radius: 12px;
-    padding: 35px 30px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.fb-side-card-right h3 {
-    font-size: 1.25rem;
-    color: var(--primary-color);
-    margin-bottom: 20px;
-    border-bottom: 2px solid var(--accent-color);
-    padding-bottom: 10px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.fb-side-card-right p {
-    font-size: 0.95rem;
-    color: var(--text-medium);
-    line-height: 1.7;
-    margin-bottom: 20px;
-}
-
-.fb-feature-list {
-    list-style: none;
-    padding: 0;
-    margin: 20px 0;
-}
-
-.fb-feature-list li {
-    font-size: 0.95rem;
-    color: var(--text-dark);
-    margin-bottom: 12px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.fb-feature-list i {
-    color: var(--accent-color);
-    font-size: 0.9rem;
-}
-
-/* 雙按鈕群組容器 */
-.fb-btn-group {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-top: 15px;
-}
-
-/* 社群按鈕通用樣式 */
-.btn-social-action {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 12px 20px;
-    border-radius: 8px;
-    font-size: 0.95rem;
-    font-weight: 500;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    color: #ffffff !important;
-}
-
-.btn-social-action:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-.btn-fb {
-    background: #1877F2;
-}
-.btn-fb:hover {
-    background: #0b5cc5;
-}
-
-.btn-line {
-    background: #06C755;
-}
-.btn-line:hover {
-    background: #05b34c;
-}
-
-/* ===== 響應式斷點 (RWD) ===== */
-@media (max-width: 850px) {
-    .fb-section-grid-2col {
-        flex-direction: column;
+      /* ============================================
+           Carbon Design System — 設計變數（Design Tokens）
+           色彩：純白畫布 + 炭灰文字 + 藍單一強調色
+           圓角：全系統 0px（直角美學）
+           陰影：不使用陰影，以 1px 髮絲線與表面色變化區分層級
+        ============================================ */
+      :root {
+        /* 品牌主色 */
+        --primary: #0f62fe; /* IBM 藍：主 CTA、連結、重點標記 */
+        --primary-hover: #0050e6; /* 按鈕 hover 狀態 */
+        --primary-press: #002d9c; /* 按鈕按下狀態（深藍） */
+        --on-primary: #ffffff; /* 藍色底上的文字色 */
+
+        /* 文字色階 */
+        --ink: #161616; /* 主要標題與強調文字 */
+        --ink-muted: #525252; /* 次要文字、說明 */
+        --ink-subtle: #8c8c8c; /* 輔助文字、註記 */
+
+        /* 表面色階（兩種表面：白與淺灰，交替形成節奏） */
+        --canvas: #ffffff; /* 預設頁面背景 */
+        --surface-1: #f4f4f4; /* 淺灰：交替區塊、輸入框 */
+        --surface-2: #e0e0e0; /* 深一階灰：分隔線、邊框 */
+
+        /* 髮絲線（卡片邊框、分隔線） */
+        --hairline: #e0e0e0;
+        --hairline-strong: #161616;
+
+        /* 頁尾（採用深藍而非純黑，呼應「不要暗色系」需求） */
+        --footer-bg: #002d9c; /* IBM blue-80：深藍頁尾 */
+        --footer-text: #e0e0e0;
+        --footer-muted: #a8c8ff;
+
+        /* 圓角：Carbon 系統承諾直角，僅保留極小值供特殊用途 */
+        --radius-none: 0px;
+        --radius-xs: 2px;
+        --radius-sm: 4px;
+
+        /* 間距系統（4px 基準） */
+        --space-xxs: 4px;
+        --space-xs: 8px;
+        --space-sm: 12px;
+        --space-md: 16px;
+        --space-lg: 24px;
+        --space-xl: 32px;
+        --space-xxl: 48px;
+        --space-section: 96px;
+      }
+
+      /* ============================================
+           Reset 與基礎排版
+        ============================================ */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family:
+          "IBM Plex Sans TC", "IBM Plex Sans", "Helvetica Neue", Arial,
+          sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 1.5;
+        letter-spacing: 0.16px; /* Carbon 精度細節：內文字距 */
+        color: var(--ink);
+        background-color: var(--canvas);
+        -webkit-font-smoothing: antialiased;
+      }
+
+      a {
+        text-decoration: none;
+        color: var(--primary);
+        transition: color 0.2s ease;
+      }
+      a:hover {
+        color: var(--primary-hover);
+      }
+      ul {
+        list-style: none;
+      }
+      strong {
+        font-weight: 600;
+        color: var(--ink);
+      }
+
+      /* 內容容器：最大寬度 1280px，置中 */
+      .container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 var(--space-lg);
+      }
+
+      /* ============================================
+           字體層級（Typography Hierarchy）
+           展示級標題使用字重 300（light），這是 IBM 的品牌聲音
+           請勿將展示標題改為粗體——那會變得跟一般企業網站沒兩樣
+        ============================================ */
+
+      /* H1：Hero 主標題，light weight，最大展示級 */
+      h1 {
+        font-size: 60px;
+        font-weight: 300;
+        line-height: 1.17;
+        letter-spacing: -0.4px;
+        color: var(--ink);
+        margin-bottom: var(--space-md);
+      }
+
+      /* H2：區塊大標題 */
+      h2 {
+        font-size: 42px;
+        font-weight: 300;
+        line-height: 1.2;
+        color: var(--ink);
+        text-align: center;
+        margin-bottom: var(--space-xl);
+      }
+
+      /* H3：卡片標題 */
+      h3 {
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 1.33;
+        color: var(--ink);
+        margin-bottom: var(--space-sm);
+      }
+
+      /* H4：子區塊標題 */
+      h4 {
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 1.4;
+        color: var(--ink);
+        margin-bottom: var(--space-xs);
+      }
+
+      /* 內文大字（Hero 副標、引言段落） */
+      .lead {
+        font-size: 18px;
+        font-weight: 300;
+        line-height: 1.5;
+        color: var(--ink-muted);
+      }
+
+      /* ============================================
+           頂部資訊列（Utility Bar）
+           淺灰底色，小型文字，顯示電話與 Email
+        ============================================ */
+      .utility-bar {
+        background: var(--surface-1);
+        border-bottom: 1px solid var(--hairline);
+        font-size: 12px;
+        color: var(--ink-muted);
+        letter-spacing: 0.32px;
+      }
+      .utility-bar .container {
+        display: flex;
+        justify-content: flex-end;
         align-items: center;
-    }
-    .fb-side-card-right {
+        gap: var(--space-lg);
+        height: 32px;
+      }
+      .utility-bar a {
+        color: var(--ink-muted);
+      }
+      .utility-bar a:hover {
+        color: var(--primary);
+      }
+      .utility-bar i {
+        margin-right: 4px;
+      }
+
+      /* ============================================
+           主導航列（Top Nav）
+           白底、底部 1px 髮絲線
+           左：Logo；右：導覽連結
+        ============================================ */
+      .top-nav {
+        background: var(--canvas);
+        border-bottom: 1px solid var(--hairline);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      .top-nav .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 48px;
+      }
+      .nav-logo {
+        display: flex;
+        align-items: center;
+        gap: var(--space-sm);
+      }
+      .nav-logo img {
+        height: 32px;
+        width: auto;
+      }
+      .nav-logo .company-name {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--ink);
+        letter-spacing: 0.16px;
+      }
+      .nav-links {
+        display: flex;
+        gap: var(--space-md);
+      }
+      .nav-links a {
+        font-size: 14px;
+        font-weight: 400;
+        color: var(--ink);
+        padding: var(--space-xs) var(--space-sm);
+        letter-spacing: 0.16px;
+      }
+      .nav-links a:hover {
+        color: var(--primary);
+        background: var(--surface-1);
+      }
+
+      /* ============================================
+           Hero 區塊（主視覺）
+           全幅背景圖（cover.jpg），左側白色漸層遮罩
+           左：白底讓文字清晰 → 中間漸層過渡 → 右：完全透明
+        ============================================ */
+      .hero {
+        position: relative;
+        /* 全幅背景圖：cover.jpg 靠右顯示，保持比例覆蓋整個 Hero */
+        background-image: url("cover.jpg");
+        background-position: center right;
+        background-repeat: no-repeat;
+        background-size: cover;
+        min-height: 600px;
+        display: flex;
+        align-items: center;
+      }
+      /* 白色漸層遮罩層：從左邊實心白過渡到右邊完全透明
+         左側（文字區）高透明度白 → 中間漸層 → 右側 0% 透明顯示圖片 */
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        background: linear-gradient(
+          to right,
+          rgba(255, 255, 255, 0.97) 0%,
+          rgba(255, 255, 255, 0.92) 25%,
+          rgba(255, 255, 255, 0.7) 50%,
+          rgba(255, 255, 255, 0.3) 75%,
+          rgba(255, 255, 255, 0) 100%
+        );
+      }
+      .hero .container {
+        position: relative;
+        z-index: 1; /* 文字在遮罩層上方 */
+        /* 沿用通用 container 置中寬度，與上方導覽、下方卡片左邊界對齊 */
+        width: 100%;
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+      .hero-text {
+        /* 加寬文字框，避免副標語斷行難看 */
+        max-width: 720px;
+      }
+      .hero-text h1 .accent {
+        color: var(--primary);
+        font-weight: 400;
+      }
+      .hero-text .lead {
+        margin-bottom: var(--space-lg);
+        /* 放寬副標語寬度，讓整句不換行 */
+        max-width: 720px;
+        white-space: nowrap;
+      }
+      .hero-text .hero-sub {
+        font-size: 14px;
+        color: var(--ink-subtle);
+        margin-top: var(--space-sm);
+      }
+
+      /* ============================================
+           按鈕系統（Carbon Buttons）
+           - 主按鈕：IBM 藍底白字，直角
+           - 次按鈕：白底藍字藍邊框，直角
+           - 按鈕文字：14px，字距 0.16px
+        ============================================ */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-xs);
+        font-size: 14px;
+        font-weight: 400;
+        letter-spacing: 0.16px;
+        padding: 12px 16px;
+        border: none;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        text-decoration: none;
+      }
+      .btn-primary {
+        background: var(--primary);
+        color: var(--on-primary);
+      }
+      .btn-primary:hover {
+        background: var(--primary-hover);
+        color: var(--on-primary);
+      }
+      .btn-secondary {
+        background: var(--canvas);
+        color: var(--primary);
+        border: 1px solid var(--primary);
+      }
+      .btn-secondary:hover {
+        background: var(--surface-1);
+      }
+      .btn i {
+        font-size: 16px;
+      }
+
+      /* ============================================
+           關於我們 & 技術優勢區塊
+           雙欄卡片，白底 + 1px 髮絲線（無陰影）
+        ============================================ */
+      .about-section {
+        background: var(--canvas);
+        padding: var(--space-section) 0;
+        border-top: 1px solid var(--hairline);
+      }
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-lg);
+      }
+      .card {
+        background: var(--canvas);
+        border: 1px solid var(--hairline);
+        padding: var(--space-xl);
+      }
+      .card-elevated {
+        background: var(--surface-1);
+        border: 1px solid var(--hairline);
+        padding: var(--space-xl);
+      }
+      .card h3 {
+        padding-bottom: var(--space-sm);
+        border-bottom: 2px solid var(--primary);
+        margin-bottom: var(--space-md);
+        display: inline-block;
+      }
+      .card p {
+        font-size: 16px;
+        color: var(--ink-muted);
+        margin-bottom: var(--space-sm);
+        line-height: 1.6;
+      }
+      .card .service-industries {
+        margin-top: var(--space-sm);
+        font-size: 14px;
+        color: var(--ink-muted);
+      }
+      .card .service-industries li {
+        padding: var(--space-xxs) 0;
+        padding-left: var(--space-sm);
+        border-left: 2px solid var(--hairline);
+        margin-bottom: var(--space-xxs);
+      }
+
+      /* 技術優勢清單 */
+      .feature-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: var(--space-sm);
+        padding: var(--space-sm) 0;
+        border-bottom: 1px solid var(--hairline);
+        font-size: 14px;
+        color: var(--ink-muted);
+        line-height: 1.6;
+      }
+      .feature-list li:last-child {
+        border-bottom: none;
+      }
+      .feature-list i {
+        color: var(--primary);
+        margin-top: 4px;
+        flex-shrink: 0;
+      }
+
+      /* ============================================
+           服務項目卡片網格
+           白底卡片，1px 髮絲線，直角
+           桌面 3 欄、平板 2 欄、手機 1 欄
+        ============================================ */
+      .services-section {
+        background: var(--surface-1);
+        padding: var(--space-section) 0;
+        border-top: 1px solid var(--hairline);
+      }
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-lg);
+      }
+      .service-card {
+        background: var(--canvas);
+        border: 1px solid var(--hairline);
+        padding: var(--space-xl);
+        display: flex;
+        flex-direction: column;
+        transition: border-color 0.2s ease;
+      }
+      .service-card:hover {
+        border-color: var(--primary);
+      }
+      .service-card .service-icon {
+        font-size: 32px;
+        color: var(--primary);
+        margin-bottom: var(--space-md);
+      }
+      .service-card h3 {
+        font-size: 20px;
+        margin-bottom: var(--space-sm);
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+      .service-card p {
+        font-size: 14px;
+        color: var(--ink-muted);
+        line-height: 1.6;
+        flex-grow: 1;
+      }
+
+      /* ============================================
+           產品實績輪播區塊
+           白底，直角圖片容器
+        ============================================ */
+      .carousel-section {
+        background: var(--canvas);
+        padding: var(--space-section) 0;
+        border-top: 1px solid var(--hairline);
+      }
+      .carousel-container {
+        position: relative;
+        overflow: hidden;
+        border: 1px solid var(--hairline);
+      }
+      .carousel-track {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+      }
+      .carousel-slide {
+        min-width: 100%;
+      }
+      .carousel-slide img {
+        width: 100%;
+        height: 500px;
+        object-fit: cover;
+        display: block;
+      }
+      /* 輪播左右按鈕：Carbon 風格白底直角 */
+      .carousel-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: var(--canvas);
+        color: var(--ink);
+        border: 1px solid var(--hairline);
+        width: 44px;
+        height: 44px;
+        cursor: pointer;
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s ease;
+        z-index: 10;
+        user-select: none;
+      }
+      .carousel-btn:hover {
+        background: var(--primary);
+        color: var(--on-primary);
+        border-color: var(--primary);
+      }
+      .carousel-btn.prev {
+        left: var(--space-md);
+      }
+      .carousel-btn.next {
+        right: var(--space-md);
+      }
+
+      /* 輪播指示點 */
+      .carousel-dots {
+        position: absolute;
+        bottom: var(--space-md);
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: var(--space-xs);
+        z-index: 10;
+      }
+      .dot {
+        width: 12px;
+        height: 12px;
+        background: rgba(255, 255, 255, 0.5);
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+      .dot.active {
+        background: var(--primary);
+        border-color: var(--primary);
+      }
+
+      /* ============================================
+           廠房設備區塊
+           淺灰表面（surface-1），結構化設備清單
+        ============================================ */
+      .equipment-section {
+        background: var(--surface-1);
+        padding: var(--space-section) 0;
+        border-top: 1px solid var(--hairline);
+      }
+      .equip-intro {
+        text-align: center;
+        max-width: 720px;
+        margin: 0 auto var(--space-xl);
+        font-size: 16px;
+        color: var(--ink-muted);
+      }
+
+      /* 大類別卡片 */
+      .equip-sec {
+        background: var(--canvas);
+        border: 1px solid var(--hairline);
+        margin-bottom: var(--space-md);
+      }
+      /* 大類別標題列 */
+      .equip-sec-head {
+        display: flex;
+        align-items: center;
+        gap: var(--space-sm);
+        padding: var(--space-md) var(--space-lg);
+        border-bottom: 1px solid var(--hairline);
+        background: var(--surface-1);
+      }
+      .equip-sec-head .e-icon {
+        font-size: 18px;
+      }
+      .equip-sec-head h3 {
+        font-size: 18px;
+        font-weight: 400;
+        margin: 0;
+        flex: 1;
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+      .equip-pill {
+        font-size: 12px;
+        background: var(--canvas);
+        border: 1px solid var(--surface-2);
+        padding: 2px var(--space-sm);
+        color: var(--ink-muted);
+        white-space: nowrap;
+      }
+      .equip-sec-body {
+        padding: var(--space-lg);
+      }
+
+      /* 子類別兩欄並排 */
+      .equip-two-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-xl);
+      }
+      .equip-col-head {
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--ink-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.32px;
+        margin-bottom: var(--space-sm);
+        padding-bottom: var(--space-xxs);
+        border-bottom: 1px solid var(--hairline);
+      }
+      /* 單筆設備列 */
+      .equip-item {
+        font-size: 14px;
+        padding: var(--space-xs) 0;
+        border-bottom: 1px solid var(--hairline);
+        display: flex;
+        gap: var(--space-xs);
+        align-items: flex-start;
+        line-height: 1.5;
+        color: var(--ink);
+      }
+      .equip-item:last-child {
+        border-bottom: none;
+      }
+      /* 數量標籤：IBM 藍底白字 */
+      .equip-num {
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--on-primary);
+        background: var(--primary);
+        padding: 2px 8px;
+        white-space: nowrap;
+        flex-shrink: 0;
+        margin-top: 1px;
+      }
+      /* 無數量時使用藍色方塊記號 */
+      .equip-dot {
+        color: var(--primary);
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1;
+        margin-top: 3px;
+        flex-shrink: 0;
+      }
+
+      /* 品管設備：3 欄格狀 */
+      .qc-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-sm);
+      }
+      .qc-cell {
+        font-size: 13px;
+        padding: var(--space-sm);
+        border: 1px solid var(--hairline);
+        background: var(--canvas);
+      }
+      .qc-cell .qc-label {
+        font-size: 12px;
+        color: var(--ink-muted);
+        display: block;
+        margin-bottom: 2px;
+        letter-spacing: 0.32px;
+      }
+      .qc-cell .qc-val {
+        font-weight: 600;
+        font-size: 14px;
+        color: var(--ink);
+      }
+
+      /* ============================================
+           最新動態（Facebook）區塊
+           白底雙欄：左 FB Plugin，右資訊卡片
+        ============================================ */
+      .news-section {
+        background: var(--canvas);
+        padding: var(--space-section) 0;
+        border-top: 1px solid var(--hairline);
+      }
+      .fb-section-grid-2col {
+        display: flex;
+        justify-content: center;
+        align-items: stretch;
+        gap: var(--space-lg);
+        max-width: 950px;
+        margin: 0 auto;
+      }
+      .fb-main-container-left {
         width: 100%;
         max-width: 500px;
-    }
-}
-</style>
+        background: var(--canvas);
+        padding: var(--space-sm);
+        border: 1px solid var(--hairline);
+        display: flex;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .fb-main-container-left .fb-page,
+      .fb-main-container-left .fb-page span,
+      .fb-main-container-left .fb-page iframe {
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+      .fb-side-card-right {
+        flex: 1;
+        min-width: 280px;
+        background: var(--surface-1);
+        border: 1px solid var(--hairline);
+        padding: var(--space-xl);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .fb-side-card-right h3 {
+        font-size: 20px;
+        color: var(--ink);
+        margin-bottom: var(--space-md);
+        padding-bottom: var(--space-sm);
+        border-bottom: 2px solid var(--primary);
+        display: flex;
+        align-items: center;
+        gap: var(--space-xs);
+      }
+      .fb-side-card-right p {
+        font-size: 14px;
+        color: var(--ink-muted);
+        line-height: 1.7;
+        margin-bottom: var(--space-md);
+      }
+      .fb-feature-list {
+        margin: var(--space-md) 0;
+      }
+      .fb-feature-list li {
+        font-size: 14px;
+        color: var(--ink);
+        margin-bottom: var(--space-sm);
+        display: flex;
+        align-items: center;
+        gap: var(--space-sm);
+      }
+      .fb-feature-list i {
+        color: var(--primary);
+        font-size: 13px;
+      }
+      .fb-btn-group {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-sm);
+        margin-top: var(--space-md);
+      }
 
-<section class="section-padding">
-    <h2>最新動態與實績</h2>
-    <div style="text-align: center; margin-bottom: 35px; color: var(--text-medium);">
-        追蹤我們的 Facebook 粉絲專頁，獲取最新的加工案例與廠房動態
+      /* 社群按鈕：直角、無圓角 */
+      .btn-social {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--space-sm);
+        padding: 12px var(--space-md);
+        font-size: 14px;
+        font-weight: 400;
+        letter-spacing: 0.16px;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        color: var(--on-primary) !important;
+      }
+      .btn-facebook {
+        background: #1877f2;
+      }
+      .btn-facebook:hover {
+        background: #0b5cc5;
+      }
+      .btn-line {
+        background: #06c755;
+      }
+      .btn-line:hover {
+        background: #05b34c;
+      }
+
+      /* ============================================
+           CTA 橫幅（Call-to-Action Banner）
+           全幅 IBM 藍色區塊，白字
+           Carbon 系統：藍色僅用於 CTA 與連結，珍惜使用
+        ============================================ */
+      .cta-banner {
+        background: var(--primary);
+        color: var(--on-primary);
+        padding: var(--space-xxl) var(--space-lg);
+        text-align: center;
+      }
+      .cta-banner h2 {
+        color: var(--on-primary);
+        font-weight: 300;
+        font-size: 32px;
+        margin-bottom: var(--space-sm);
+      }
+      .cta-banner p {
+        font-size: 18px;
+        font-weight: 300;
+        opacity: 0.9;
+        margin-bottom: var(--space-lg);
+      }
+      .cta-banner .btn-secondary {
+        background: transparent;
+        color: var(--on-primary);
+        border: 1px solid var(--on-primary);
+      }
+      .cta-banner .btn-secondary:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      /* ============================================
+           頁尾（Footer）
+           深藍色底（#002d9c），非純黑
+           保持淺色系整體感，僅頁尾使用深色
+        ============================================ */
+      .site-footer {
+        background: var(--footer-bg);
+        color: var(--footer-text);
+        padding: var(--space-xxl) var(--space-lg) var(--space-lg);
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        gap: var(--space-xl);
+        max-width: 1280px;
+        margin: 0 auto;
+        padding-bottom: var(--space-xl);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      }
+      .footer-brand h4 {
+        color: #ffffff;
+        font-size: 18px;
+        margin-bottom: var(--space-sm);
+        font-weight: 400;
+      }
+      .footer-brand p {
+        font-size: 14px;
+        color: var(--footer-muted);
+        line-height: 1.7;
+      }
+      .footer-col h5 {
+        font-size: 14px;
+        font-weight: 600;
+        color: #ffffff;
+        margin-bottom: var(--space-sm);
+        letter-spacing: 0.16px;
+      }
+      .footer-col ul li {
+        margin-bottom: var(--space-xs);
+        font-size: 14px;
+      }
+      .footer-col a {
+        color: var(--footer-muted);
+      }
+      .footer-col a:hover {
+        color: #ffffff;
+      }
+      .footer-col i {
+        margin-right: var(--space-xs);
+        width: 16px;
+      }
+
+      /* 頁尾底部版權列 */
+      .footer-bottom {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding-top: var(--space-lg);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: var(--space-md);
+      }
+      .footer-bottom p {
+        font-size: 12px;
+        color: var(--footer-muted);
+        letter-spacing: 0.32px;
+      }
+      .footer-social {
+        display: flex;
+        gap: var(--space-sm);
+      }
+      .footer-social a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: #ffffff;
+        font-size: 16px;
+        transition: all 0.2s ease;
+      }
+      .footer-social a:hover {
+        background: var(--primary);
+        border-color: var(--primary);
+      }
+
+      /* ============================================
+           右下角 LINE 懸浮按鈕
+        ============================================ */
+      .float-line-btn {
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        width: 56px;
+        height: 56px;
+        /* 圓形按鈕 */
+        border-radius: 50%;
+        background-color: #06c755;
+        color: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        text-decoration: none;
+        z-index: 9999;
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+      .float-line-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      }
+      .float-line-btn svg {
+        width: 34px;
+        height: 34px;
+      }
+      .float-line-btn .btn-tooltip {
+        position: absolute;
+        right: 64px;
+        background: rgba(0, 0, 0, 0.75);
+        color: #ffffff;
+        padding: 6px 10px;
+        font-size: 12px;
+        white-space: nowrap;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+      }
+      .float-line-btn:hover .btn-tooltip {
+        opacity: 1;
+      }
+
+      /* ============================================
+           響應式斷點（RWD）
+           - 768px 以下：雙欄改單欄、導覽收合
+        ============================================ */
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 36px;
+        }
+        h2 {
+          font-size: 28px;
+        }
+        .hero {
+          min-height: 480px;
+        }
+        .hero-text {
+          max-width: 100%;
+        }
+        .hero-text .lead {
+          white-space: normal; /* 手機版允許換行 */
+        }
+        .about-grid {
+          grid-template-columns: 1fr;
+        }
+        .services-grid {
+          grid-template-columns: 1fr;
+        }
+        .equip-two-col {
+          grid-template-columns: 1fr;
+        }
+        .qc-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .fb-section-grid-2col {
+          flex-direction: column;
+          align-items: center;
+        }
+        .footer-grid {
+          grid-template-columns: 1fr;
+        }
+        .nav-links {
+          display: none;
+        }
+        .utility-bar {
+          display: none;
+        }
+        .section,
+        .hero,
+        .about-section,
+        .services-section,
+        .carousel-section,
+        .equipment-section,
+        .news-section {
+          padding: var(--space-xl) 0;
+        }
+        .carousel-slide img {
+          height: 280px;
+        }
+      }
+    </style>
+
+    <!-- ============================================
+         結構化資料（Schema.org ProfessionalService）
+         有助 Google 搜尋顯示商家資訊卡
+         修改後請同步更新頁尾聯絡資訊
+    ============================================ -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "翊鵬科技有限公司 YIPENG TECHNOLOGY CO., LTD.",
+        "image": "https://yipengtechnology.github.io/epo.co.ltd/images/logo.png",
+        "@id": "https://yipengtechnology.github.io/epo.co.ltd/",
+        "url": "https://yipengtechnology.github.io/epo.co.ltd/",
+        "telephone": "+886-2-86778500",
+        "email": "epo.co.ltd@gmail.com",
+        "priceRange": "$$$",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "大湖路192號",
+          "addressLocality": "鶯歌區",
+          "addressRegion": "新北市",
+          "postalCode": "239",
+          "addressCountry": "TW"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 24.9541,
+          "longitude": 121.3408
+        },
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "08:00",
+          "closes": "17:00"
+        },
+        "knowsAbout": [
+          "功能性塗裝",
+          "自動化粉體烤漆",
+          "自動化液體烤漆",
+          "軍規鹽霧測試",
+          "AI伺服器表面處理",
+          "化學表面處理",
+          "金屬表面處理加工"
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <!-- Facebook JavaScript SDK -->
+    <div id="fb-root"></div>
+    <script
+      async
+      defer
+      crossorigin="anonymous"
+      src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v18.0"
+    ></script>
+
+    <!-- ============================================
+     頂部資訊列（Utility Bar）
+     淺灰底、小型文字，提供聯絡資訊捷徑
+============================================ -->
+    <div class="utility-bar">
+      <div class="container">
+        <a href="tel:0286778500"><i class="fas fa-phone"></i>02-86778500</a>
+        <a href="mailto:epo.co.ltd@gmail.com"
+          ><i class="fas fa-envelope"></i>epo.co.ltd@gmail.com</a
+        >
+      </div>
     </div>
 
-    <div class="fb-section-grid-2col">
-        <!-- 左側：FB Page Plugin (500px 限制) -->
-        <div class="fb-main-container-left">
-            <div class="fb-page" 
-                 data-href="https://www.facebook.com/yipengtechnology" 
-                 data-tabs="timeline" 
-                 data-width="500" 
-                 data-height="700" 
-                 data-small-header="false" 
-                 data-adapt-container-width="true" 
-                 data-hide-cover="false" 
-                 data-show-facepile="true">
-                <blockquote cite="https://www.facebook.com/yipengtechnology" class="fb-xfbml-parse-ignore">
-                    <a href="https://www.facebook.com/yipengtechnology">翊鵬科技 YIPENG Technology</a>
-                </blockquote>
+    <!-- ============================================
+     主導航列（Top Navigation）
+     白底 sticky，左 Logo 右導覽
+============================================ -->
+    <nav class="top-nav">
+      <div class="container">
+        <div class="nav-logo">
+          <img src="logo.png" alt="翊鵬科技 Logo" />
+          <span class="company-name">翊鵬科技有限公司</span>
+        </div>
+        <div class="nav-links">
+          <a href="#about">關於我們</a>
+          <a href="#services">服務項目</a>
+          <a href="#works">實績展示</a>
+          <a href="#equipment">廠房設備</a>
+          <a href="#contact">聯絡我們</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ============================================
+     SECTION 1：Hero 主視覺
+     全幅背景圖（cover.jpg）+ 左側白色漸層遮罩
+     文字疊在左側白底上，右側完全透明顯示廠房實景
+============================================ -->
+    <header class="hero">
+      <div class="container">
+        <div class="hero-text">
+          <h1>翊鵬科技<br /><span class="accent">功能性表面處理</span></h1>
+          <p class="lead">
+            精密塗裝技術 · 高端外觀處理 · 軍規戰術防護 · 客製化解決方案
+          </p>
+          <p class="hero-sub">您在精密製造與高端表面處理領域的最佳合作夥伴</p>
+          <br />
+          <!-- 主要 CTA：IBM 藍色按鈕 -->
+          <a
+            href="https://lin.ee/5rTJfNe"
+            target="_blank"
+            class="btn btn-primary"
+          >
+            <i class="fab fa-line"></i> 表面處理需求諮詢
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- ============================================
+     SECTION 2：關於我們 & 技術優勢
+     雙欄卡片：左企業核心價值，右技術優勢
+============================================ -->
+    <section class="about-section" id="about">
+      <div class="container">
+        <div class="about-grid">
+          <!-- 左欄：企業核心價值 -->
+          <article class="card">
+            <h3>
+              <i
+                class="fas fa-building"
+                style="color: var(--primary); margin-right: 8px"
+              ></i
+              >企業核心價值
+            </h3>
+            <p>
+              翊鵬科技深耕精密<strong>表面處理加工</strong>，致力於為 AI
+              雲端伺服器、自動化組件、半導體設備及航太軍工產業提供頂尖塗裝解決方案。
+            </p>
+            <p>
+              我們不僅是加工服務商，更是協助您在研發階段優化產品功能性、耐用性與視覺價值的技術顧問。
+            </p>
+            <p><strong>服務產業概覽：</strong></p>
+            <ul class="service-industries">
+              <li>
+                <strong>資通訊與自動化：</strong
+                >AI伺服器、半導體設備、無人機、網通安控
+              </li>
+              <li>
+                <strong>軍事與航太：</strong
+                >軍規特殊功能設備、航海航電零件、仿真裝備
+              </li>
+              <li>
+                <strong>精密醫療與能源：</strong
+                >醫療電子儀器、油電汽機車零組件、動力工具
+              </li>
+            </ul>
+            <p style="margin-top: 12px">
+              歡迎進行新產品試樣製作、小量試產或長期產能供應合作。
+            </p>
+          </article>
+
+          <!-- 右欄：技術優勢（淺灰底 elevated 卡片） -->
+          <article class="card-elevated">
+            <h3>
+              <i
+                class="fas fa-thumbs-up"
+                style="color: var(--primary); margin-right: 8px"
+              ></i
+              >我們的技術優勢
+            </h3>
+            <ul class="feature-list">
+              <li>
+                <i class="fas fa-check"></i>
+                <div>
+                  <strong>全方位功能性塗裝：</strong
+                  >具備抗干擾、防偵測、抗靜電、高耐溫、超耐候與軍規鹽霧測試標準，精準對應嚴苛環境需求。
+                </div>
+              </li>
+              <li>
+                <i class="fas fa-check"></i>
+                <div>
+                  <strong>卓越外觀工藝：</strong
+                  >提供消光、砂紋、迷彩、金屬/鍍鈦質感、皮革/橡膠觸感等多樣化表面質感。
+                </div>
+              </li>
+              <li>
+                <i class="fas fa-check"></i>
+                <div>
+                  <strong>標準化品質管控：</strong>全面導入電子化 SOP
+                  作業流程，整合自動化控制設備與精密化學量測。
+                </div>
+              </li>
+              <li>
+                <i class="fas fa-check"></i>
+                <div>
+                  <strong>專業檢測能力：</strong
+                  >備妥膜厚、色差管理、附著力（百格）、耐磨與鹽霧測試設備，確保品質恆定。
+                </div>
+              </li>
+              <li>
+                <i class="fas fa-check"></i>
+                <div>
+                  <strong>彈性產能調度：</strong
+                  >支援高品質精密打樣、小量多樣客製化，至大規模自動化量產需求。
+                </div>
+              </li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+     SECTION 3：專業表面處理項目（服務卡片）
+     淺灰背景，3 欄卡片網格
+============================================ -->
+    <section class="services-section" id="services">
+      <div class="container">
+        <h2>專業表面處理項目</h2>
+        <div class="services-grid">
+          <!-- 服務卡片 1：粉體烤漆 -->
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-spray-can"></i></div>
+            <h3>自動化粉體烤漆</h3>
+            <p>
+              運用靜電吸附原理，建構堅韌且耐腐蝕的防護塗層。無溶劑環保製程，特別適合工業機械與戶外長效防鏽產品。
+            </p>
+          </div>
+
+          <!-- 服務卡片 2：液體烤漆 -->
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-tint"></i></div>
+            <h3>自動化液體烤漆</h3>
+            <p>
+              針對高端電子產品與汽機車零件，提供高精度色彩與多樣化特殊質感，完美呈現精密表面加工的質感要求。
+            </p>
+          </div>
+
+          <!-- 服務卡片 3：印刷 -->
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-print"></i></div>
+            <h3>印刷</h3>
+            <p>
+              提供高附著力的品牌標識與文字印刷服務。適用於金屬、塑膠及玻璃等多種材質表面，精準傳遞品牌細節。
+            </p>
+          </div>
+
+          <!-- 服務卡片 4：化學表面處理 -->
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-flask"></i></div>
+            <h3>化學表面處理</h3>
+            <p>
+              整合脫脂、酸洗與磷化轉化膜程序，徹底優化底材附著力與防鏽基底，是高品質表面處理加工的核心保障。
+            </p>
+          </div>
+
+          <!-- 服務卡片 5：金屬表面處理 -->
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-tools"></i></div>
+            <h3>金屬表面處理加工</h3>
+            <p>
+              提供噴砂、拋光與研磨服務。有效調整表面粗糙度，除可消除表面瑕疵外，更能顯著提升後續塗層的咬合效果。
+            </p>
+          </div>
+
+          <!-- 服務卡片 6：客製化項目 -->
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-sliders-h"></i></div>
+            <h3>客製化項目</h3>
+            <p>
+              依客戶需求提供特殊質感、顏色與功能性規格開發。從打樣到量產，彈性配合您的專屬設計與技術要求。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+     SECTION 4：產品與實績展示（輪播）
+     白底，17 張實績照片自動輪播
+============================================ -->
+    <section class="carousel-section" id="works">
+      <div class="container">
+        <h2>產品與實績展示</h2>
+        <div class="carousel-container" id="imageCarousel">
+          <div class="carousel-track" id="carouselTrack">
+            <!-- 17 張實績照片 -->
+            <div class="carousel-slide">
+              <img src="image001.jpg" alt="實績展示 1" loading="lazy" />
             </div>
+            <div class="carousel-slide">
+              <img src="image002.jpg" alt="實績展示 2" loading="lazy" />
+            </div>
+            <div class="carousel-slide">
+              <img src="image003.jpg" alt="實績展示 3" loading="lazy" />
+            </div>
+            <div class="carousel-slide">
+              <img src="image004.jpg" alt="實績展示 4" loading="lazy" />
+            </div>
+            <div class="carousel-slide">
+              <img src="image005.jpg" alt="實績展示 5" loading="lazy" />
+            </div>
+            <div class="carousel-slide">
+              <img src="image006.jpg" alt="實績展示 6" loading="lazy" />
+            </div>
+            <div class="carousel-slide">
+              <img src="image007.jpg" alt="實績展示 7" loading="lazy" />
+            </div>
+            <div class="carousel-slide">
+              <img src="image008.jpg" alt="實績展示 8" loading="lazy" />
+            </div>
+            <div class="carousel-slide">
+              <img src="image009.jpg" alt="實績展示 9" loading="lazy" />
+            </div>
+            <div class="carousel-slide">
+              <img src="image010.jpg" alt="實績展示 10" loading="lazy" />
+            </div>
+            <div class="carousel-slide">
+              <img src="image011.jpg" alt="實績展示 11" loading="lazy" />
+            </div>
+            <div class="carousel-slide">
+              <img src="image012.jpg" alt="實績展示 12" loading="lazy" />
+            </div>
+            <div class="carousel-slide">
+              <img src="image013.jpg" alt="實績展示 13" loading="lazy" />
+            </div>
+            <div class="carousel-slide">
+              <img src="image014.jpg" alt="實績展示 14" loading="lazy" />
+            </div>
+            <div class="carousel-slide">
+              <img src="image015.jpg" alt="實績展示 15" loading="lazy" />
+            </div>
+            <div class="carousel-slide">
+              <img src="image016.jpg" alt="實績展示 16" loading="lazy" />
+            </div>
+            <div class="carousel-slide">
+              <img src="image017.jpg" alt="實績展示 17" loading="lazy" />
+            </div>
+          </div>
+          <!-- 左右切換按鈕 -->
+          <button class="carousel-btn prev" id="prevBtn" aria-label="上一張">
+            &#10094;
+          </button>
+          <button class="carousel-btn next" id="nextBtn" aria-label="下一張">
+            &#10095;
+          </button>
+          <!-- 頁碼指示點 -->
+          <div class="carousel-dots" id="carouselDots"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+     SECTION 5：廠房設備與產能概況
+     淺灰表面，三個大類別設備卡片
+============================================ -->
+    <section class="equipment-section" id="equipment">
+      <div class="container">
+        <h2>廠房設備與產能概況</h2>
+        <p class="equip-intro">
+          工欲善其事，必先利其器。我們擁有業界領先的自動化生產線與精密檢測設備。
+        </p>
+
+        <!-- 大類別 1：塗裝生產線 -->
+        <div class="equip-sec">
+          <div class="equip-sec-head">
+            <span class="e-icon">🏭</span>
+            <h3>先進自動化塗裝生產線設備</h3>
+            <span class="equip-pill">18 項設備</span>
+          </div>
+          <div class="equip-sec-body">
+            <div class="equip-two-col">
+              <!-- 粉體塗裝設備 -->
+              <div>
+                <div class="equip-col-head">粉體塗裝設備</div>
+                <div class="equip-item">
+                  <span class="equip-num">7 組</span>瑞士原裝進口 Gema optiflex
+                  手持式噴槍
+                </div>
+                <div class="equip-item">
+                  <span class="equip-num">4 組</span>自動靜電塗裝機噴槍
+                </div>
+                <div class="equip-item">
+                  <span class="equip-num">2 台</span>往復機式粉體自動噴塗機
+                </div>
+                <div class="equip-item">
+                  <span class="equip-num">1 台</span>旋風式回收塗裝噴房
+                </div>
+                <div class="equip-item">
+                  <span class="equip-num">2 台</span>管濾式回收噴房
+                </div>
+                <div class="equip-item">
+                  <span class="equip-num">1 組</span>15 米遠紅外線預熱爐
+                </div>
+                <div class="equip-item">
+                  <span class="equip-num">180m</span>懸吊式輸送控制系統線
+                </div>
+                <div class="equip-item">
+                  <span class="equip-dot">▪</span>熱旋風循環式烤爐（粉體線專用）
+                </div>
+                <div class="equip-item">
+                  <span class="equip-dot">▪</span>樣品噴房 1 台 ／ 樣品烤箱 1 台
+                </div>
+              </div>
+              <!-- 液體塗裝設備 -->
+              <div>
+                <div class="equip-col-head">液體塗裝設備</div>
+                <div class="equip-item">
+                  <span class="equip-num">3 間</span
+                  >乾式液體噴房（萬級無塵室等級）
+                </div>
+                <div class="equip-item">
+                  <span class="equip-num">6 組</span>日本岩田手持式空氣噴槍
+                </div>
+                <div class="equip-item">
+                  <span class="equip-num">4 組</span>手持式靜電噴槍
+                </div>
+                <div class="equip-item">
+                  <span class="equip-num">1 台</span>DISK 靜電自動噴塗機
+                </div>
+                <div class="equip-item">
+                  <span class="equip-num">1 組</span>15 米遠紅外線預熱爐
+                </div>
+                <div class="equip-item">
+                  <span class="equip-num">200m</span>懸吊式輸送線
+                </div>
+                <div class="equip-item">
+                  <span class="equip-num">45m</span
+                  >熱旋風循環式烤爐（液體線專用）
+                </div>
+                <div class="equip-item">
+                  <span class="equip-dot">▪</span>樣品噴房 1 台 ／ 樣品烤箱 1 台
+                </div>
+                <div class="equip-item">
+                  <span class="equip-dot">▪</span>感應式自動噴槍機械手
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <!-- 右側襯底卡片：粉專簡介、重點與整合按鈕 -->
-        <div class="fb-side-card-right">
+        <!-- 大類別 2：前處理系統 -->
+        <div class="equip-sec">
+          <div class="equip-sec-head">
+            <span class="e-icon">💧</span>
+            <h3>專業自動化前處理系統</h3>
+            <span class="equip-pill">6 項設備</span>
+          </div>
+          <div class="equip-sec-body">
+            <div class="equip-two-col">
+              <!-- 噴淋式前處理線 -->
+              <div>
+                <div class="equip-col-head">噴淋式前處理線</div>
+                <div class="equip-item">
+                  <span class="equip-num">250m</span>懸吊式輸送線
+                </div>
+                <div class="equip-item">
+                  <span class="equip-num">50m</span>隧道懸吊噴淋式前處理線
+                </div>
+                <div class="equip-item">
+                  <span class="equip-num">30m</span>遠紅外線水切爐
+                </div>
+              </div>
+              <!-- 浸泡式前處理線 -->
+              <div>
+                <div class="equip-col-head">浸泡式前處理線</div>
+                <div class="equip-item">
+                  <span class="equip-num">15 槽</span>籠門式浸泡線
+                </div>
+                <div class="equip-item">
+                  <span class="equip-num">3 台</span>天車
+                </div>
+                <div class="equip-item">
+                  <span class="equip-num">3 台</span>遠紅外線熱風循環烤箱
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 大類別 3：品管檢驗儀器 -->
+        <div class="equip-sec">
+          <div class="equip-sec-head">
+            <span class="e-icon">🔬</span>
+            <h3>精密品管檢驗儀器實驗室</h3>
+            <span class="equip-pill">9 項設備</span>
+          </div>
+          <div class="equip-sec-body">
+            <div class="qc-grid">
+              <div class="qc-cell">
+                <span class="qc-label">耐候度</span
+                ><span class="qc-val">鹽霧測試機</span>
+              </div>
+              <div class="qc-cell">
+                <span class="qc-label">附著力</span
+                ><span class="qc-val">百格測試刀</span>
+              </div>
+              <div class="qc-cell">
+                <span class="qc-label">膜厚</span
+                ><span class="qc-val">膜厚計</span>
+              </div>
+              <div class="qc-cell">
+                <span class="qc-label">顏色</span
+                ><span class="qc-val">色差機</span>
+              </div>
+              <div class="qc-cell">
+                <span class="qc-label">亮度</span
+                ><span class="qc-val">光澤機</span>
+              </div>
+              <div class="qc-cell">
+                <span class="qc-label">衝擊</span
+                ><span class="qc-val">落球式衝擊測試儀</span>
+              </div>
+              <div class="qc-cell">
+                <span class="qc-label">固化度</span
+                ><span class="qc-val">MEK 測試劑</span>
+              </div>
+              <div class="qc-cell">
+                <span class="qc-label">硬度</span
+                ><span class="qc-val">鉛筆測試組、硬度計</span>
+              </div>
+              <div class="qc-cell">
+                <span class="qc-label">顆粒</span
+                ><span class="qc-val">點規</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+     SECTION 6：最新動態（Facebook 粉專）
+     白底雙欄：左 FB Plugin，右資訊卡片
+============================================ -->
+    <section class="news-section">
+      <div class="container">
+        <h2>最新動態與實績</h2>
+        <p
+          style="
+            text-align: center;
+            margin-bottom: 32px;
+            color: var(--ink-muted);
+            font-size: 16px;
+          "
+        >
+          追蹤我們的 Facebook 粉絲專頁，獲取最新的加工案例與廠房動態
+        </p>
+        <div class="fb-section-grid-2col">
+          <!-- 左側：FB Page Plugin -->
+          <div class="fb-main-container-left">
+            <div
+              class="fb-page"
+              data-href="https://www.facebook.com/yipengtechnology"
+              data-tabs="timeline"
+              data-width="500"
+              data-height="700"
+              data-small-header="false"
+              data-adapt-container-width="true"
+              data-hide-cover="false"
+              data-show-facepile="true"
+            >
+              <blockquote
+                cite="https://www.facebook.com/yipengtechnology"
+                class="fb-xfbml-parse-ignore"
+              >
+                <a href="https://www.facebook.com/yipengtechnology"
+                  >翊鵬科技 YIPENG Technology</a
+                >
+              </blockquote>
+            </div>
+          </div>
+          <!-- 右側：粉專簡介與按鈕 -->
+          <div class="fb-side-card-right">
             <div>
-                <h3><i class="fas fa-bullhorn"></i> 即時技術動態</h3>
-                <p>翊鵬科技定期於官方粉絲專頁更新實際案例與現場實拍，給客戶能看見的踏實。</p>
-                <ul class="fb-feature-list">
-                    <li><i class="fas fa-check"></i> 加工案例展示</li>
-                    <li><i class="fas fa-check"></i> 廠房環境實拍</li>
-                    <li><i class="fas fa-check"></i> 相關最新動態</li>
-                </ul>
+              <h3><i class="fas fa-bullhorn"></i> 即時技術動態</h3>
+              <p>
+                翊鵬科技定期於官方粉絲專頁更新實際案例與現場實拍，給客戶能看見的踏實。
+              </p>
+              <ul class="fb-feature-list">
+                <li><i class="fas fa-check"></i> 加工案例展示</li>
+                <li><i class="fas fa-check"></i> 廠房環境實拍</li>
+                <li><i class="fas fa-check"></i> 相關最新動態</li>
+              </ul>
             </div>
-
-            <!-- 整合按鈕群組 -->
             <div class="fb-btn-group">
-                <a href="https://www.facebook.com/yipengtechnology" target="_blank" class="btn-social-action btn-fb">
-                    <i class="fab fa-facebook-square"></i> 前往 Facebook 專頁
-                </a>
-                <a href="https://lin.ee/5rTJfNe" target="_blank" class="btn-social-action btn-line">
-                    <i class="fab fa-line"></i> 加入 LINE 官方帳號
-                </a>
+              <a
+                href="https://www.facebook.com/yipengtechnology"
+                target="_blank"
+                class="btn-social btn-facebook"
+              >
+                <i class="fab fa-facebook-square"></i> 前往 Facebook 專頁
+              </a>
+              <a
+                href="https://lin.ee/5rTJfNe"
+                target="_blank"
+                class="btn-social btn-line"
+              >
+                <i class="fab fa-line"></i> 加入 LINE 官方帳號
+              </a>
             </div>
+          </div>
         </div>
-    </div>
-</section>
+      </div>
+    </section>
 
-    <!-- ===================================================
-         SECTION 5：聯絡資訊 & 頁尾
-         修改電話／Email／地址請同步更新 Schema.org 結構化資料
-    =================================================== -->
-    <footer class="contact-info">
-        <h2>聯絡翊鵬科技</h2>
-        <p class="contact-intro">專業加工諮詢 · 樣品打樣 · 長期策略合作</p>
+    <!-- ============================================
+     CTA 橫幅：全幅 IBM 藍色號召行動區
+     Carbon 系統：藍色珍惜使用，僅用於 CTA
+============================================ -->
+    <section class="cta-banner" id="contact">
+      <h2>準備開始您的表面處理專案？</h2>
+      <p>專業加工諮詢 · 樣品打樣 · 長期策略合作</p>
+      <a
+        href="https://lin.ee/5rTJfNe"
+        target="_blank"
+        class="btn btn-secondary"
+      >
+        <i class="fab fa-line"></i> 立即諮詢報價
+      </a>
+    </section>
 
-        <div class="contact-details">
-            <!-- 電話 -->
-            <div class="contact-item">
-                <i class="fas fa-phone-alt"></i>
-                <a href="tel:0286778500">02-86778500</a>
-            </div>
-            <!-- Email -->
-            <div class="contact-item">
-                <i class="fas fa-envelope"></i>
-                <a href="mailto:epo.co.ltd@gmail.com">epo.co.ltd@gmail.com</a>
-            </div>
-            <!-- 地址（連結至 Google Maps） -->
-            <div class="contact-item">
-                <i class="fas fa-map-marker-alt"></i>
-                <a href="https://maps.google.com/?q=新北市鶯歌區大湖路192號" target="_blank">新北市鶯歌區大湖路192號</a>
-            </div>
+    <!-- ============================================
+     頁尾（Footer）
+     深藍色底（#002d9c），三欄佈局
+============================================ -->
+    <footer class="site-footer">
+      <div class="footer-grid">
+        <!-- 左欄：公司資訊 -->
+        <div class="footer-brand">
+          <h4>翊鵬科技有限公司</h4>
+          <p>
+            YIPENG TECHNOLOGY CO., LTD.<br />
+            精密塗裝技術 · 高端外觀處理 · 軍規戰術防護 · 客製化解決方案
+            您在精密製造與高端表面處理領域的最佳合作夥伴
+          </p>
         </div>
-
-        <!-- 服務時間 -->
-        <div style="margin-top: 25px; font-size: 0.95rem; opacity: 0.8; display: flex; align-items: center; justify-content: center;">
-            <i class="far fa-clock" style="margin-right: 8px;"></i> 服務時間：週一至週五 08:00 - 17:00
+        <!-- 中欄：快速連結 -->
+        <div class="footer-col">
+          <h5>快速連結</h5>
+          <ul>
+            <li><a href="#about">關於我們</a></li>
+            <li><a href="#services">服務項目</a></li>
+            <li><a href="#works">實績展示</a></li>
+            <li><a href="#equipment">廠房設備</a></li>
+          </ul>
         </div>
-
-        <!-- 社群連結：修改 href 可更換各平台網址 -->
-        <div class="social-links">
-            <a href="https://www.facebook.com/yipengtechnology" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://www.instagram.com/yipeng_technology/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="https://lin.ee/5rTJfNe" target="_blank" aria-label="Line"><i class="fab fa-line"></i></a>
+        <!-- 右欄：聯絡資訊 -->
+        <div class="footer-col">
+          <h5>聯絡方式</h5>
+          <ul>
+            <li>
+              <i class="fas fa-phone"></i
+              ><a href="tel:0286778500">02-86778500</a>
+            </li>
+            <li>
+              <i class="fas fa-envelope"></i
+              ><a href="mailto:epo.co.ltd@gmail.com">epo.co.ltd@gmail.com</a>
+            </li>
+            <li>
+              <i class="fas fa-map-marker-alt"></i
+              ><a
+                href="https://maps.google.com/?q=新北市鶯歌區大湖路192號"
+                target="_blank"
+                >新北市鶯歌區大湖路192號</a
+              >
+            </li>
+            <li><i class="far fa-clock"></i>週一至週五 08:00 - 17:00</li>
+          </ul>
         </div>
-
-        <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.15); margin: 40px 0 25px;">
-        <p style="font-size: 0.85rem; opacity: 0.6;">© 2026 翊鵬科技有限公司 YIPENG TECHNOLOGY CO., LTD. All Rights Reserved. 台灣專業表面處理</p>
+      </div>
+      <!-- 頁尾底部：版權 + 社群 -->
+      <div class="footer-bottom">
+        <p>
+          &copy; 2026 翊鵬科技有限公司 YIPENG TECHNOLOGY CO., LTD. All Rights
+          Reserved.
+        </p>
+        <div class="footer-social">
+          <a
+            href="https://www.facebook.com/yipengtechnology"
+            target="_blank"
+            aria-label="Facebook"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+          <a
+            href="https://www.instagram.com/yipeng_technology/"
+            target="_blank"
+            aria-label="Instagram"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a href="https://lin.ee/5rTJfNe" target="_blank" aria-label="LINE"
+            ><i class="fab fa-line"></i
+          ></a>
+        </div>
+      </div>
     </footer>
 
-</div><!-- /container -->
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const track = document.getElementById('carouselTrack');
-    const slides = Array.from(track.children);
-    const nextBtn = document.getElementById('nextBtn');
-    const prevBtn = document.getElementById('prevBtn');
-    const dotsNav = document.getElementById('carouselDots');
-    const container = document.getElementById('imageCarousel');
+    <!-- ============================================
+     右下角 LINE 懸浮按鈕
+============================================ -->
+    <a
+      href="https://line.me/R/ti/p/@066wshpr"
+      class="float-line-btn"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="加入官方 LINE"
+    >
+      <!-- 官方 LINE 圖標：白色對話氣泡 + 綠色 LINE 字樣 -->
+      <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <!-- 白色對話氣泡：使用官方 LINE bubble path 縮放置中 -->
+        <g transform="translate(6, 8) scale(2.17)">
+          <path
+            d="M24 10.304c0-5.369-5.383-9.738-12-9.738-6.616 0-12 4.369-12 9.738 0 4.814 4.269 8.846 10.036 9.608.391.084.922.258 1.057.592.121.303.079.778.039 1.085l-.171 1.027c-.053.303-.242 1.186 1.039.647 1.281-.54 6.911-4.069 9.428-6.967 1.739-1.907 2.572-3.843 2.572-6.032z"
+            fill="#ffffff"
+          />
+        </g>
+        <!-- LINE 字樣（綠色，置中於氣泡主體） -->
+        <text
+          x="32"
+          y="32"
+          text-anchor="middle"
+          dominant-baseline="central"
+          font-family="Arial, Helvetica, sans-serif"
+          font-size="16"
+          font-weight="bold"
+          fill="#06c755"
+          letter-spacing="0.5"
+        >
+          LINE
+        </text>
+      </svg>
+      <span class="btn-tooltip">使用LINE聯絡我們</span>
+    </a>
 
-    let currentIndex = 0;
-    const totalSlides = slides.length;
-    const intervalTime = 3500; // 自動輪播間隔（毫秒）：3.5秒
-    let autoPlayTimer = null;
+    <!-- ============================================
+     輪播 JavaScript（自動輪播 + 手動切換 + 指示點）
+============================================ -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const track = document.getElementById("carouselTrack");
+        const slides = Array.from(track.children);
+        const nextBtn = document.getElementById("nextBtn");
+        const prevBtn = document.getElementById("prevBtn");
+        const dotsNav = document.getElementById("carouselDots");
+        const container = document.getElementById("imageCarousel");
 
-    // 動態生成指示點 (Dots)
-    slides.forEach((_, index) => {
-      const dot = document.createElement('div');
-      dot.classList.add('dot');
-      if (index === 0) dot.classList.add('active');
-      dot.addEventListener('click', () => goToSlide(index));
-      dotsNav.appendChild(dot);
-    });
+        let currentIndex = 0;
+        const totalSlides = slides.length;
+        const intervalTime = 3500; // 自動輪播間隔 3.5 秒
+        let autoPlayTimer = null;
 
-    const dots = Array.from(dotsNav.children);
+        // 動態生成指示點
+        slides.forEach((_, index) => {
+          const dot = document.createElement("div");
+          dot.classList.add("dot");
+          if (index === 0) dot.classList.add("active");
+          dot.addEventListener("click", () => goToSlide(index));
+          dotsNav.appendChild(dot);
+        });
+        const dots = Array.from(dotsNav.children);
 
-    // 移動至指定 Slide
-    function goToSlide(index) {
-      if (index < 0) {
-        currentIndex = totalSlides - 1;
-      } else if (index >= totalSlides) {
-        currentIndex = 0;
-      } else {
-        currentIndex = index;
-      }
+        // 切換至指定 slide
+        function goToSlide(index) {
+          if (index < 0) currentIndex = totalSlides - 1;
+          else if (index >= totalSlides) currentIndex = 0;
+          else currentIndex = index;
+          track.style.transform = `translateX(-${currentIndex * 100}%)`;
+          dots.forEach((d) => d.classList.remove("active"));
+          if (dots[currentIndex]) dots[currentIndex].classList.add("active");
+        }
 
-      track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        // 按鈕事件
+        nextBtn.addEventListener("click", () => {
+          goToSlide(currentIndex + 1);
+          resetTimer();
+        });
+        prevBtn.addEventListener("click", () => {
+          goToSlide(currentIndex - 1);
+          resetTimer();
+        });
 
-      // 更新 Dot 狀態
-      dots.forEach(dot => dot.classList.remove('active'));
-      if (dots[currentIndex]) {
-        dots[currentIndex].classList.add('active');
-      }
-    }
+        // 自動輪播控制
+        function startAutoPlay() {
+          autoPlayTimer = setInterval(
+            () => goToSlide(currentIndex + 1),
+            intervalTime,
+          );
+        }
+        function stopAutoPlay() {
+          clearInterval(autoPlayTimer);
+        }
+        function resetTimer() {
+          stopAutoPlay();
+          startAutoPlay();
+        }
 
-    // 按鈕事件監聽
-    nextBtn.addEventListener('click', () => {
-      goToSlide(currentIndex + 1);
-      resetTimer();
-    });
+        // 滑鼠移入暫停，移出恢復
+        container.addEventListener("mouseenter", stopAutoPlay);
+        container.addEventListener("mouseleave", startAutoPlay);
 
-    prevBtn.addEventListener('click', () => {
-      goToSlide(currentIndex - 1);
-      resetTimer();
-    });
-
-    // 自動輪播控制
-    function startAutoPlay() {
-      autoPlayTimer = setInterval(() => {
-        goToSlide(currentIndex + 1);
-      }, intervalTime);
-    }
-
-    function stopAutoPlay() {
-      clearInterval(autoPlayTimer);
-    }
-
-    function resetTimer() {
-      stopAutoPlay();
-      startAutoPlay();
-    }
-
-    // 滑鼠移入暫停，移出恢復
-    container.addEventListener('mouseenter', stopAutoPlay);
-    container.addEventListener('mouseleave', startAutoPlay);
-
-    // 啟動自動輪播
-    startAutoPlay();
-  });
-</script>
-<!-- 手機端懸浮 LINE 按鈕 -->
-<a href="https://line.me/R/ti/p/@066wshpr" class="float-line-btn" target="_blank" rel="noopener noreferrer" aria-label="加入官方 LINE">
-  <!-- LINE Icon SVG -->
-  <svg viewBox="0 0 24 24">
-    <path d="M24 10.304c0-5.369-5.383-9.738-12-9.738-6.616 0-12 4.369-12 9.738 0 4.814 4.269 8.846 10.036 9.608.391.084.922.258 1.057.592.121.303.079.778.039 1.085l-.171 1.027c-.053.303-.242 1.186 1.039.647 1.281-.54 6.911-4.069 9.428-6.967 1.739-1.907 2.572-3.843 2.572-6.032z"/>
-  </svg>
-  <span class="btn-tooltip">使用LINE聯絡我們</span>
-</a>
-</body>
+        startAutoPlay();
+      });
+    </script>
+  </body>
 </html>
