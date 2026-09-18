@@ -1,15 +1,12 @@
 <!doctype html>
 <html lang="zh-Hant-TW">
   <head>
-    <!-- ============================================
-         安全防護標籤
-    ============================================ -->
+    <!-- Static-site security policy. Server-side headers should also be set
+         when the site moves off GitHub Pages. -->
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self' https: data: 'unsafe-inline' 'unsafe-eval;"
+      content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'unsafe-inline' https://connect.facebook.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https://*.facebook.com https://*.fbcdn.net; connect-src 'self' https://*.facebook.com https://*.fbcdn.net; frame-src https://www.facebook.com; form-action 'self'; upgrade-insecure-requests"
     />
-    <meta http-equiv="X-Frame-Options" content="DENY" />
-    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
 
     <meta charset="UTF-8" />
@@ -19,6 +16,8 @@
          SEO 標題與描述
     ============================================ -->
     <title>翊鵬科技有限公司 | 台灣表面處理、功能性塗裝與烤漆加工</title>
+    <link rel="canonical" href="https://yipengtechnology.github.io/epo.co.ltd/" />
+    <link rel="preload" as="image" href="cover.jpg" fetchpriority="high" />
     <link rel="icon" type="image/png" sizes="32x32" href="logo.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="logo.png" />
     <meta
@@ -29,6 +28,19 @@
       name="keywords"
       content="表面處理, 表面處理加工, 粉體烤漆, 液體烤漆, 功能性塗裝, 軍用塗裝, 鶯歌烤漆廠, 翊鵬科技"
     />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta property="og:locale" content="zh_TW" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="翊鵬科技有限公司" />
+    <meta property="og:title" content="翊鵬科技｜新北鶯歌表面處理、粉體與液體烤漆加工" />
+    <meta property="og:description" content="提供自動化粉體烤漆、液體烤漆、功能性塗裝與精密印刷，服務精密製造、AI 伺服器、軍工與航太零件。" />
+    <meta property="og:url" content="https://yipengtechnology.github.io/epo.co.ltd/" />
+    <meta property="og:image" content="https://yipengtechnology.github.io/epo.co.ltd/cover.jpg" />
+    <meta property="og:image:alt" content="翊鵬科技表面處理與塗裝加工廠房" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="翊鵬科技｜表面處理、粉體與液體烤漆加工" />
+    <meta name="twitter:description" content="新北鶯歌專業表面處理與功能性塗裝加工。" />
+    <meta name="twitter:image" content="https://yipengtechnology.github.io/epo.co.ltd/cover.jpg" />
 
     <!-- ============================================
          字體：IBM Plex Sans TC（中文）+ IBM Plex Sans（英文數字）
@@ -1095,12 +1107,16 @@
         "@context": "https://schema.org",
         "@type": "ProfessionalService",
         "name": "翊鵬科技有限公司 YIPENG TECHNOLOGY CO., LTD.",
-        "image": "https://yipengtechnology.github.io/epo.co.ltd/images/logo.png",
+        "image": "https://yipengtechnology.github.io/epo.co.ltd/logo.png",
         "@id": "https://yipengtechnology.github.io/epo.co.ltd/",
         "url": "https://yipengtechnology.github.io/epo.co.ltd/",
         "telephone": "+886-2-86778500",
         "email": "epo.co.ltd@gmail.com",
         "priceRange": "$$$",
+        "sameAs": [
+          "https://www.facebook.com/yipengtechnology",
+          "https://www.instagram.com/yipeng_technology/"
+        ],
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "大湖路192號",
@@ -1206,6 +1222,7 @@
           <a
             href="https://lin.ee/5rTJfNe"
             target="_blank"
+            rel="noopener noreferrer"
             class="btn btn-primary"
           >
             <i class="fab fa-line"></i> 表面處理需求諮詢
@@ -1384,55 +1401,55 @@
           <div class="carousel-track" id="carouselTrack">
             <!-- 17 張實績照片 -->
             <div class="carousel-slide">
-              <img src="image001.jpg" alt="實績展示 1" loading="lazy" />
+              <img src="image001.jpg" alt="翊鵬科技表面處理加工實績照片 1" loading="lazy" />
             </div>
             <div class="carousel-slide">
-              <img src="image002.jpg" alt="實績展示 2" loading="lazy" />
+              <img src="image002.jpg" alt="翊鵬科技表面處理加工實績照片 2" loading="lazy" />
             </div>
             <div class="carousel-slide">
-              <img src="image003.jpg" alt="實績展示 3" loading="lazy" />
+              <img src="image003.jpg" alt="翊鵬科技表面處理加工實績照片 3" loading="lazy" />
             </div>
             <div class="carousel-slide">
-              <img src="image004.jpg" alt="實績展示 4" loading="lazy" />
+              <img src="image004.jpg" alt="翊鵬科技表面處理加工實績照片 4" loading="lazy" />
             </div>
             <div class="carousel-slide">
-              <img src="image005.jpg" alt="實績展示 5" loading="lazy" />
+              <img src="image005.jpg" alt="翊鵬科技表面處理加工實績照片 5" loading="lazy" />
             </div>
             <div class="carousel-slide">
-              <img src="image006.jpg" alt="實績展示 6" loading="lazy" />
+              <img src="image006.jpg" alt="翊鵬科技表面處理加工實績照片 6" loading="lazy" />
             </div>
             <div class="carousel-slide">
-              <img src="image007.jpg" alt="實績展示 7" loading="lazy" />
+              <img src="image007.jpg" alt="翊鵬科技表面處理加工實績照片 7" loading="lazy" />
             </div>
             <div class="carousel-slide">
-              <img src="image008.jpg" alt="實績展示 8" loading="lazy" />
+              <img src="image008.jpg" alt="翊鵬科技表面處理加工實績照片 8" loading="lazy" />
             </div>
             <div class="carousel-slide">
-              <img src="image009.jpg" alt="實績展示 9" loading="lazy" />
+              <img src="image009.jpg" alt="翊鵬科技表面處理加工實績照片 9" loading="lazy" />
             </div>
             <div class="carousel-slide">
-              <img src="image010.jpg" alt="實績展示 10" loading="lazy" />
+              <img src="image010.jpg" alt="翊鵬科技表面處理加工實績照片 10" loading="lazy" />
             </div>
             <div class="carousel-slide">
-              <img src="image011.jpg" alt="實績展示 11" loading="lazy" />
+              <img src="image011.jpg" alt="翊鵬科技表面處理加工實績照片 11" loading="lazy" />
             </div>
             <div class="carousel-slide">
-              <img src="image012.jpg" alt="實績展示 12" loading="lazy" />
+              <img src="image012.jpg" alt="翊鵬科技表面處理加工實績照片 12" loading="lazy" />
             </div>
             <div class="carousel-slide">
-              <img src="image013.jpg" alt="實績展示 13" loading="lazy" />
+              <img src="image013.jpg" alt="翊鵬科技表面處理加工實績照片 13" loading="lazy" />
             </div>
             <div class="carousel-slide">
-              <img src="image014.jpg" alt="實績展示 14" loading="lazy" />
+              <img src="image014.jpg" alt="翊鵬科技表面處理加工實績照片 14" loading="lazy" />
             </div>
             <div class="carousel-slide">
-              <img src="image015.jpg" alt="實績展示 15" loading="lazy" />
+              <img src="image015.jpg" alt="翊鵬科技表面處理加工實績照片 15" loading="lazy" />
             </div>
             <div class="carousel-slide">
-              <img src="image016.jpg" alt="實績展示 16" loading="lazy" />
+              <img src="image016.jpg" alt="翊鵬科技表面處理加工實績照片 16" loading="lazy" />
             </div>
             <div class="carousel-slide">
-              <img src="image017.jpg" alt="實績展示 17" loading="lazy" />
+              <img src="image017.jpg" alt="翊鵬科技表面處理加工實績照片 17" loading="lazy" />
             </div>
           </div>
           <!-- 左右切換按鈕 -->
@@ -1685,6 +1702,7 @@
               <a
                 href="https://www.facebook.com/yipengtechnology"
                 target="_blank"
+                rel="noopener noreferrer"
                 class="btn-social btn-facebook"
               >
                 <i class="fab fa-facebook-square"></i> 前往 Facebook 專頁
@@ -1692,6 +1710,7 @@
               <a
                 href="https://lin.ee/5rTJfNe"
                 target="_blank"
+                rel="noopener noreferrer"
                 class="btn-social btn-line"
               >
                 <i class="fab fa-line"></i> 加入 LINE 官方帳號
@@ -1712,6 +1731,7 @@
       <a
         href="https://lin.ee/5rTJfNe"
         target="_blank"
+        rel="noopener noreferrer"
         class="btn btn-secondary"
       >
         <i class="fab fa-line"></i> 立即諮詢報價
@@ -1760,6 +1780,7 @@
               ><a
                 href="https://maps.google.com/?q=新北市鶯歌區大湖路192號"
                 target="_blank"
+                rel="noopener noreferrer"
                 >新北市鶯歌區大湖路192號</a
               >
             </li>
@@ -1777,16 +1798,18 @@
           <a
             href="https://www.facebook.com/yipengtechnology"
             target="_blank"
+            rel="noopener noreferrer"
             aria-label="Facebook"
             ><i class="fab fa-facebook-f"></i
           ></a>
           <a
             href="https://www.instagram.com/yipeng_technology/"
             target="_blank"
+            rel="noopener noreferrer"
             aria-label="Instagram"
             ><i class="fab fa-instagram"></i
           ></a>
-          <a href="https://lin.ee/5rTJfNe" target="_blank" aria-label="LINE"
+          <a href="https://lin.ee/5rTJfNe" target="_blank" rel="noopener noreferrer" aria-label="LINE"
             ><i class="fab fa-line"></i
           ></a>
         </div>
