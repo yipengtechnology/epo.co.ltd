@@ -152,9 +152,8 @@
         line-height: 1.17;
         letter-spacing: -0.4px;
         color: var(--ink);
-        margin-bottom: var(--space-md);
+        margin-bottom: 24px;
       }
-
       /* H2：區塊大標題 */
       h2 {
         font-size: 42px;
@@ -248,7 +247,7 @@
       }
       .nav-logo .company-name {
         font-size: 14px;
-        font-weight: 600;
+        font-size: 17px;
         color: var(--ink);
         letter-spacing: 0.16px;
       }
@@ -266,6 +265,51 @@
       .nav-links a:hover {
         color: var(--primary);
         background: var(--surface-1);
+      }
+
+      /* ============================================
+           手機版漢堡按鈕 + 展開選單（IBM 風格直角）
+           桌面版隱藏，手機版顯示
+      ============================================ */
+      .nav-toggle {
+        display: none; /* 桌面版隱藏 */
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+        width: 40px;
+        height: 40px;
+        background: transparent;
+        border: 1px solid var(--hairline);
+        cursor: pointer;
+        padding: 8px;
+      }
+      .nav-toggle span {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background: var(--ink);
+        transition: all 0.2s ease;
+      }
+      /* 手機版展開選單面板：預設隱藏，點擊後顯示 */
+      .mobile-menu {
+        display: none;
+        flex-direction: column;
+        background: var(--canvas);
+        border-top: 1px solid var(--hairline);
+      }
+      .mobile-menu a {
+        padding: 14px 24px;
+        font-size: 15px;
+        text-align: center;
+        color: var(--ink);
+        border-bottom: 1px solid var(--hairline);
+      }
+      .mobile-menu a:hover {
+        background: var(--surface-1);
+        color: var(--primary);
+      }
+      .mobile-menu.open {
+        display: flex;
       }
 
       /* ============================================
@@ -321,17 +365,15 @@
         font-weight: 400;
       }
       .hero-text .lead {
-        margin-bottom: var(--space-lg);
-        /* 放寬副標語寬度，讓整句不換行 */
+        margin-bottom: 12px;
         max-width: 720px;
         white-space: nowrap;
       }
       .hero-text .hero-sub {
         font-size: 14px;
         color: var(--ink-subtle);
-        margin-top: var(--space-sm);
+        margin-top: 12px;
       }
-
       /* ============================================
            按鈕系統（Carbon Buttons）
            - 主按鈕：IBM 藍底白字，直角
@@ -976,7 +1018,7 @@
         ============================================ */
       @media (max-width: 768px) {
         h1 {
-          font-size: 36px;
+          font-size: 42px;
         }
         h2 {
           font-size: 28px;
@@ -989,6 +1031,16 @@
         }
         .hero-text .lead {
           white-space: normal; /* 手機版允許換行 */
+        }
+        /* 手機版加強白色遮罩：整體提高透明度，確保文字不被圖片吃掉 */
+        .hero::before {
+          background: linear-gradient(
+            to right,
+            rgba(255, 255, 255, 0.97) 0%,
+            rgba(255, 255, 255, 0.95) 30%,
+            rgba(255, 255, 255, 0.88) 60%,
+            rgba(255, 255, 255, 0.8) 100%
+          );
         }
         .about-grid {
           grid-template-columns: 1fr;
@@ -1011,6 +1063,9 @@
         }
         .nav-links {
           display: none;
+        }
+        .nav-toggle {
+          display: flex;
         }
         .utility-bar {
           display: none;
@@ -1110,6 +1165,7 @@
           <img src="logo.png" alt="翊鵬科技 Logo" />
           <span class="company-name">翊鵬科技有限公司</span>
         </div>
+        <!-- 桌面版導覽列 -->
         <div class="nav-links">
           <a href="#about">關於我們</a>
           <a href="#services">服務項目</a>
@@ -1117,6 +1173,18 @@
           <a href="#equipment">廠房設備</a>
           <a href="#contact">聯絡我們</a>
         </div>
+        <!-- 手機版漢堡按鈕（僅手機顯示） -->
+        <button class="nav-toggle" aria-label="開啟選單" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+      <!-- 手機版展開選單面板 -->
+      <div class="mobile-menu">
+        <a href="#about">關於我們</a>
+        <a href="#services">服務項目</a>
+        <a href="#works">實績展示</a>
+        <a href="#equipment">廠房設備</a>
+        <a href="#contact">聯絡我們</a>
       </div>
     </nav>
 
@@ -1661,7 +1729,7 @@
           <h4>翊鵬科技有限公司</h4>
           <p>
             YIPENG TECHNOLOGY CO., LTD.<br />
-            精密塗裝技術 · 高端外觀處理 · 軍規戰術防護 · 客製化解決方案
+            精密塗裝技術 · 高端外觀處理 · 軍規戰術防護 · 客製化解決方案<br />
             您在精密製造與高端表面處理領域的最佳合作夥伴
           </p>
         </div>
@@ -1784,7 +1852,10 @@
           const dot = document.createElement("div");
           dot.classList.add("dot");
           if (index === 0) dot.classList.add("active");
-          dot.addEventListener("click", () => goToSlide(index));
+          dot.addEventListener("click", () => {
+            goToSlide(index);
+            resetTimer();
+          });
           dotsNav.appendChild(dot);
         });
         const dots = Array.from(dotsNav.children);
@@ -1811,13 +1882,17 @@
 
         // 自動輪播控制
         function startAutoPlay() {
+          stopAutoPlay(); /* 先清掉殘留的 interval */
           autoPlayTimer = setInterval(
             () => goToSlide(currentIndex + 1),
             intervalTime,
           );
         }
         function stopAutoPlay() {
-          clearInterval(autoPlayTimer);
+          if (autoPlayTimer) {
+            clearInterval(autoPlayTimer);
+            autoPlayTimer = null;
+          }
         }
         function resetTimer() {
           stopAutoPlay();
@@ -1827,8 +1902,28 @@
         // 滑鼠移入暫停，移出恢復
         container.addEventListener("mouseenter", stopAutoPlay);
         container.addEventListener("mouseleave", startAutoPlay);
-
         startAutoPlay();
+      });
+    </script>
+
+    <!-- 手機版漢堡選單切換 -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var toggle = document.querySelector(".nav-toggle");
+        var menu = document.querySelector(".mobile-menu");
+        if (toggle && menu) {
+          toggle.addEventListener("click", function () {
+            var open = menu.classList.toggle("open");
+            toggle.setAttribute("aria-expanded", open);
+          });
+          /* 點擊選單連結後自動收合 */
+          menu.querySelectorAll("a").forEach(function (link) {
+            link.addEventListener("click", function () {
+              menu.classList.remove("open");
+              toggle.setAttribute("aria-expanded", "false");
+            });
+          });
+        }
       });
     </script>
   </body>
